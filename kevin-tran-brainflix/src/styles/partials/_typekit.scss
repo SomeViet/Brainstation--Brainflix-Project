@@ -1,0 +1,53 @@
+@use "variables" as *;
+@use "mediaqueries" as *;
+
+@mixin pageheader {
+    @include tablet {
+        font-size: 33px;
+        line-height: 44px;
+        font-weight: 700;
+    }
+    font-size: 24px;
+    line-height: 32px;
+    font-weight: 700;
+}
+@mixin sectionheader {
+    @include tablet {
+        font-size: 12px;
+        line-height: 20px;
+        font-weight: 700;
+    }
+    font-size: 12px;
+    line-height: 20px;
+    font-weight: 700;
+}
+@mixin subheader {
+    @include tablet {
+        font-size: 14px;
+        line-height: 22px;
+        font-weight: 700;
+    }
+    font-size: 13px;
+    line-height: 18px;
+    font-weight: 700;
+}
+@mixin bodycopy {
+    @include tablet {
+        font-size: 14px;
+        line-height: 22px;
+        font-weight: 400;
+    }
+    font-size: 13px;
+    line-height: 18px;
+    font-weight: 400;
+}
+@mixin labelbutton {
+    @include tablet {
+        font-size: 12px;
+        line-height: 20px;
+        font-weight: 700;
+    }
+    font-size: 12px;
+    line-height: 20px;
+    font-weight: 700;
+}

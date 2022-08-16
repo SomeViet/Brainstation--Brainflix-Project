@@ -1,0 +1,16 @@
+body {
+    font-family: "Avenir";
+    margin: 0;
+}
+
+@mixin page-sidemargins {
+    @include tablet {
+        padding: 0 2.25rem;
+    }
+    @include desktop {
+        padding: 0;
+        width: 63.75rem;
+        margin: auto;
+    }
+    padding: 0 1rem;
+}
