@@ -5,18 +5,24 @@ import upload from "../../assets/images/upload.svg";
 import Button from "../Button/Button";
 import UserIcon from "../UserIcon/UserIcon";
 import SearchBar from "../SearchBar/SearchBar";
+import Logo from "../Logo/Logo";
 
 function Header() {
     return (
         <>
-            <header>
-                <img src={logo} alt="Logo" className="header__logo" />
-                <div>
-                    <form className="header__form">
+            <header class="header">
+                <div class="header__logo">
+                    <Logo logoImg={logo} />
+                </div>
+
+                <form className="header__form">
+                    <div class="header__searchbar">
                         <SearchBar />
                         <UserIcon userIcon={userAvatar} className="usericon" />
-                        <Button buttonText={"UPLOAD"} buttonIcon={upload} />
-                    </form>
+                    </div>
+                    <Button buttonText={"UPLOAD"} buttonIcon={upload} />
+                </form>
+                <div class="header__icon">
                     <UserIcon
                         userIcon={userAvatar}
                         className="usericon--tablet"
