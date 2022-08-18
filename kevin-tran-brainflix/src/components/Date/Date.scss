@@ -1,0 +1,9 @@
+@use "../../styles/partials/typekit.scss" as *;
+@use "../../styles/partials/variables.scss" as *;
+
+.date {
+    @include bodycopy;
+    @include subheaderspacing;
+    font-weight: 400;
+    color: $silver;
+}

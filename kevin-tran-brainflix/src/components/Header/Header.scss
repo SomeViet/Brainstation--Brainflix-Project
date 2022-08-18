@@ -8,8 +8,13 @@
     @include tablet {
         display: flex;
         align-items: center;
+        justify-content: space-between;
     }
-
+    &__rightcontainer {
+        @include tablet {
+            display: flex;
+        }
+    }
     &__logo {
         @include tablet {
             justify-content: flex-start;
@@ -41,5 +46,6 @@
         @include tablet {
             padding: 16px 0;
         }
+        display: inline;
     }
 }

@@ -1,4 +1,5 @@
-@use "mediaqueries" as *;
+@use "./mediaqueries" as *;
+@use "./fonts" as *;
 
 body {
     font-family: "Avenir";

@@ -1,0 +1,7 @@
+@use "../../styles/partials/typekit.scss" as *;
+@use "../../styles/partials/variables.scss" as *;
+
+.author {
+    @include subheader;
+    @include subheaderspacing;
+}

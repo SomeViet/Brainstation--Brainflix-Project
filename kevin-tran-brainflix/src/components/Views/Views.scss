@@ -1,0 +1,19 @@
+@use "../../styles/partials/typekit.scss" as *;
+@use "../../styles/partials/variables.scss" as *;
+
+.views {
+    @include subheaderspacing;
+    display: flex;
+    align-items: stretch;
+
+    &__icon {
+        margin-right: 8px;
+    }
+
+    &__count {
+        @include bodycopy;
+        font-size: 13px;
+        font-weight: 400;
+        color: $silver;
+    }
+}

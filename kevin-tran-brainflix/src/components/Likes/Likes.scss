@@ -1,0 +1,16 @@
+@use "../../styles/partials/typekit.scss" as *;
+@use "../../styles/partials/variables.scss" as *;
+
+.likes {
+    @include subheaderspacing;
+    display: flex;
+
+    &__icon {
+        margin-right: 8px;
+        vertical-align: middle;
+    }
+    &__count {
+        @include bodycopy;
+        color: $silver;
+    }
+}
