@@ -1,11 +1,12 @@
 import Header from "./components/Header/Header";
-import MainVideo from "./components/MainVideo/MainVideo";
+import Main from "./components/Main/Main";
 
 function App() {
     return (
         <>
             <Header />
-            <MainVideo />
+            <Main />
+            {/* <SideVideo /> */}
         </>
     );
 }

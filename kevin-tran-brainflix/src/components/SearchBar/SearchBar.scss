@@ -5,8 +5,10 @@
 .searchbar {
     @include tablet {
         width: auto;
+        height: 40px;
     }
     @include bodycopy;
+    box-sizing: border-box;
     border: 1px solid $mercury;
     border-radius: 4px;
     // creative liberty on min-width form field

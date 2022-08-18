@@ -1,0 +1,36 @@
+@use "../../styles/partials/mediaqueries" as *;
+@use "../../styles/partials/global" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/typekit" as *;
+
+.comments {
+    @include page-sidemargins;
+    &__count {
+        @include subheader;
+        margin: 0;
+        padding: 0 0 16px 0;
+        color: $brainflix-black;
+    }
+    &__subheader {
+        display: flex;
+    }
+
+    &__container {
+        display: flex;
+    }
+
+    &__join {
+        @include bodycopy;
+        margin: 0;
+        padding: 0 0 4px 16px;
+        color: $silver;
+    }
+    &__alignment {
+        @include tablet {
+            width: 100%;
+            max-width: 40px;
+        }
+        max-width: 36px;
+        width: 100%;
+    }
+}

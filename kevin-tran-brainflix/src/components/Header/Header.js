@@ -20,15 +20,19 @@ function Header() {
                             <SearchBar />
                             <UserIcon
                                 userIcon={userAvatar}
-                                className="usericon"
+                                className="usericon__header"
                             />
                         </div>
-                        <Button buttonText={"UPLOAD"} buttonIcon={upload} />
+                        <Button
+                            buttonText={"UPLOAD"}
+                            buttonIcon={upload}
+                            buttonClass={"button__header"}
+                        />
                     </form>
                     <div className="header__icon">
                         <UserIcon
                             userIcon={userAvatar}
-                            className="usericon--tablet"
+                            className="usericon__header--tablet"
                         />
                     </div>
                 </div>

@@ -1,6 +1,5 @@
 import "./MainVideo.scss";
 import videoDetails from "../../data/video-details.json";
-import MainVideoDetails from "../MainVideoDetails/MainVideoDetails";
 
 let videoDataDetails = videoDetails;
 
@@ -21,7 +20,6 @@ function MainVideo() {
                     ></video>
                 </div>
             </div>
-            <MainVideoDetails />
         </>
     );
 }

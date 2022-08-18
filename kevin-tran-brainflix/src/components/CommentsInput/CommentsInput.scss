@@ -1,0 +1,46 @@
+@use "../../styles/partials/mediaqueries" as *;
+@use "../../styles/partials/global" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/typekit" as *;
+
+.commentsinput {
+    @include tablet {
+        flex-direction: row;
+    }
+    width: 100%;
+    padding: 0 0 16px 16px;
+    display: flex;
+    flex-direction: column;
+
+    &__text-area {
+        @include bodycopy;
+        @include tablet {
+            padding: 8px 16px 0 16px;
+            min-height: 40px;
+            height: 40px;
+            margin-bottom: 0px;
+            vertical-align: middle;
+            margin-right: 16px;
+        }
+        font-family: "Avenir";
+        width: 100%;
+        padding: 12px;
+        margin-bottom: 16px;
+        min-width: 240px;
+        box-sizing: border-box;
+        border-radius: 4px;
+        border: 1px solid $mercury;
+        resize: none;
+        min-height: 36px;
+        height: 100px;
+
+        &:focus {
+            outline: none;
+            border: 2px solid $brainflix-blue;
+        }
+
+        &:invalid {
+            border: 1px solid #d22d2d;
+        }
+    }
+}
