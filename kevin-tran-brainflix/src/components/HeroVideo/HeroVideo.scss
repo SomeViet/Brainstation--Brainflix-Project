@@ -2,15 +2,18 @@
 @use "../../styles/partials/global" as *;
 @use "../../styles/partials/variables" as *;
 
-.mainvideo {
+.herovideo {
     @include tablet {
-        background-color: $brainflix-darkblack;
+        margin: 24px auto;
     }
+    background-color: $brainflix-darkblack;
+    margin: 16px auto;
+
     &__container {
         @include desktop {
             @include page-sidemargins;
         }
-        padding: 0px;
+
         display: flex;
         justify-content: center;
     }

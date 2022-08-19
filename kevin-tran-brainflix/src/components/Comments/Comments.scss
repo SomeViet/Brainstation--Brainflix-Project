@@ -5,26 +5,40 @@
 
 .comments {
     @include page-sidemargins;
+    @include tablet {
+        margin: 24px auto;
+    }
+    margin: 16px auto;
+
     &__count {
         @include subheader;
-        margin: 0;
-        padding: 0 0 16px 0;
+        margin: 0 0 16px 0;
         color: $brainflix-black;
     }
+
     &__subheader {
+        @include tablet {
+            gap: 24px;
+        }
         display: flex;
+        gap: 16px;
+        margin-bottom: 4px;
     }
 
     &__container {
-        display: flex;
+        @extend .comments__subheader;
+        @include tablet {
+            margin-bottom: 24px;
+        }
+        margin-bottom: 16px;
     }
 
     &__join {
-        @include bodycopy;
-        margin: 0;
-        padding: 0 0 4px 16px;
+        @include labelbutton;
         color: $silver;
+        margin: 0;
     }
+
     &__alignment {
         @include tablet {
             width: 100%;

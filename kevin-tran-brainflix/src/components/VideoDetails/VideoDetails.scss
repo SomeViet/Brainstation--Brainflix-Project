@@ -1,0 +1,57 @@
+@use "../../styles/partials/mediaqueries" as *;
+@use "../../styles/partials/global" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/typekit" as *;
+
+.videodetails {
+    @include page-sidemargins;
+    @include tablet {
+        margin: 36px auto 24px auto;
+    }
+    margin: 24px auto 16px auto;
+
+    &__header {
+        @include tablet {
+            margin: 36px 0 8px 0;
+        }
+        @include pageheader;
+        margin: 24 0 16px 0;
+        color: $brainflix-black;
+    }
+
+    &__subheader {
+        @include tablet {
+            margin: 8px auto;
+        }
+        display: flex;
+        margin: 16px auto;
+
+        &-left {
+            @include tablet {
+                flex-direction: row;
+                gap: 24px;
+            }
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            width: 50%;
+        }
+
+        &-right {
+            //copy left container and align right
+            @extend .videodetails__subheader-left;
+            @include tablet {
+                justify-content: flex-end;
+            }
+        }
+    }
+
+    &__description {
+        @include bodycopy;
+        @include tablet {
+            margin: 24px auto;
+        }
+        margin: 16px auto;
+        color: $brainflix-black;
+    }
+}

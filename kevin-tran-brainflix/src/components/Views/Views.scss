@@ -2,7 +2,6 @@
 @use "../../styles/partials/variables.scss" as *;
 
 .views {
-    @include subheaderspacing;
     display: flex;
     align-items: stretch;
 

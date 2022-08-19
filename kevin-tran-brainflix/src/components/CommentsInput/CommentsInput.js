@@ -12,6 +12,7 @@ function CommentsInput() {
                 className="commentsinput__text-area"
             ></textarea>
             <Button
+                // "Comment" attributes
                 buttonText={"COMMENT"}
                 buttonIcon={CommentIcon}
                 buttonClass={"button__comments"}

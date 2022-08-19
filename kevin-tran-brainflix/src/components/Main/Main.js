@@ -1,12 +1,10 @@
-import MainVideo from "../MainVideo/MainVideo";
-import MainVideoDetails from "../MainVideoDetails/MainVideoDetails";
+import VideoDetails from "../VideoDetails/VideoDetails";
 import Comments from "../Comments/Comments";
 
-import videoDetails from "../../data/video-details.json";
+import videoDetails1 from "../../data/video-details.json";
 
-let videoDataDetails = videoDetails;
+let videoDataDetails = videoDetails1;
 
-console.log(videoDataDetails);
 // videoDataDetails.map((result) => {
 //     console.log(result);
 // });
@@ -14,8 +12,7 @@ console.log(videoDataDetails);
 function Main() {
     return (
         <>
-            <MainVideo />
-            <MainVideoDetails />
+            <VideoDetails />
             <Comments />
         </>
     );

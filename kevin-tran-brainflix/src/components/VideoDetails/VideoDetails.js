@@ -1,5 +1,5 @@
-import "./MainVideoDetails.scss";
-import videoDetails from "../../data/video-details.json";
+import "./VideoDetails.scss";
+import videoDetails1 from "../../data/video-details.json";
 
 import Author from "../Author/Author";
 import Date from "../Date/Date";
@@ -7,29 +7,29 @@ import Views from "../Views/Views";
 import Likes from "../Likes/Likes";
 import Divider from "../Divider/Divider";
 
-let videoDataDetails = videoDetails;
+let videoDataDetails = videoDetails1;
 
 console.log(videoDataDetails);
 
-function MainVideoDetails() {
+function VideoDetails() {
     return (
         <>
-            <div className="mainvideodetails">
-                <h1 className="mainvideodetails__header">Title of the video</h1>
-                <Divider />
-                <div className="mainvideodetails__subheader">
-                    <div className="mainvideodetails__subheader-left">
+            <div className="videodetails">
+                <h1 className="videodetails__header">Title of the video</h1>
+                <Divider lineClass={"divider__tablet"} />
+                <div className="videodetails__subheader">
+                    <div className="videodetails__subheader-left">
                         <Author />
                         <Date />
                     </div>
-                    <div className="mainvideodetails__subheader-right">
+                    <div className="videodetails__subheader-right">
                         <Views />
                         <Likes />
                     </div>
                 </div>
-                <Divider />
+                <Divider lineClass={"divider"} />
 
-                <div className="mainvideodetails__main">
+                <div className="videodetails__description">
                     On a gusty day in Southern Utah, a group of 25 daring
                     mountain bikers blew the doors off what is possible on two
                     wheels, unleashing some of the biggest moments the sport has
@@ -44,4 +44,4 @@ function MainVideoDetails() {
     );
 }
 
-export default MainVideoDetails;
+export default VideoDetails;

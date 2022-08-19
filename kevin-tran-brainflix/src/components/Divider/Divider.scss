@@ -1,6 +1,14 @@
 @use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mediaqueries" as *;
 
 .divider {
     border: 1px solid $mercury;
     margin: 0px;
+
+    &__tablet {
+        @extend .divider;
+        @include tablet {
+            display: none;
+        }
+    }
 }

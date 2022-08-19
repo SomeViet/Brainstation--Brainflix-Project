@@ -14,28 +14,26 @@ function Header() {
                 <div className="header__logo">
                     <Logo logoImg={logo} />
                 </div>
-                <div className="header__rightcontainer">
-                    <form className="header__form">
-                        <div className="header__searchbar-container">
-                            <SearchBar />
-                            <UserIcon
-                                userIcon={userAvatar}
-                                className="usericon__header"
-                            />
-                        </div>
-                        <Button
-                            buttonText={"UPLOAD"}
-                            buttonIcon={upload}
-                            buttonClass={"button__header"}
-                        />
-                    </form>
-                    <div className="header__icon">
+                <form className="header__form">
+                    <div className="header__searchbar-container">
+                        <SearchBar />
                         <UserIcon
                             userIcon={userAvatar}
-                            className="usericon__header-tablet"
+                            className="usericon__header"
                         />
                     </div>
-                </div>
+
+                    <Button
+                        // "Upload" attributes
+                        buttonText={"UPLOAD"}
+                        buttonIcon={upload}
+                        buttonClass={"button__header"}
+                    />
+                    <UserIcon
+                        userIcon={userAvatar}
+                        className="usericon__header-tablet"
+                    />
+                </form>
             </header>
         </>
     );

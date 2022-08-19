@@ -1,10 +1,9 @@
 @use "../../styles/partials/mediaqueries" as *;
 
 .usericon {
-    //comments
+    //normal icon
     @include tablet {
         max-width: 40px;
-        border-radius: 50%;
         width: 100%;
         height: 40px;
         object-fit: cover;
@@ -16,7 +15,7 @@
     object-fit: cover;
 
     &__header {
-        //header within searchbar
+        //icon for mobile
         @include tablet {
             display: none;
         }
@@ -27,7 +26,7 @@
         object-fit: cover;
 
         &-tablet {
-            //header outside search bar
+            // icon for >mobile
             @include tablet {
                 max-width: 40px;
                 border-radius: 50%;

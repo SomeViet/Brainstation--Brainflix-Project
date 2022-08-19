@@ -1,4 +1,4 @@
-import "./MainVideo.scss";
+import "./HeroVideo.scss";
 import videoDetails from "../../data/video-details.json";
 
 let videoDataDetails = videoDetails;
@@ -8,20 +8,20 @@ console.log(videoDataDetails);
 //     console.log(result);
 // });
 
-function MainVideo() {
+function HeroVideo() {
     return (
         <>
-            <div className="mainvideo">
-                <div className="mainvideo__container">
+            <main className="herovideo">
+                <div className="herovideo__container">
                     <video
                         controls
                         poster={videoDataDetails[0].image}
-                        className="mainvideo__hero"
+                        className="herovideo__hero"
                     ></video>
                 </div>
-            </div>
+            </main>
         </>
     );
 }
 
-export default MainVideo;
+export default HeroVideo;

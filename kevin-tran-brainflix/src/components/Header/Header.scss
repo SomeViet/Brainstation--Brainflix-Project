@@ -9,45 +9,40 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
+        margin: 24px auto;
     }
-    &__rightcontainer {
-        @include tablet {
-            display: flex;
-        }
-    }
+    margin: 16px auto;
+
     &__logo {
         @include tablet {
             justify-content: flex-start;
+            margin: 0;
         }
-        padding: 16px 0;
         display: flex;
         justify-content: center;
+        margin-bottom: 16px;
     }
-    &__searchbar-container {
-        @include tablet {
-            padding: 16px 0;
-            width: auto;
-        }
-        display: flex;
-        padding-bottom: 16px;
-        justify-content: space-between;
-        width: 100%;
-    }
+
     &__form {
         @include tablet {
             padding: 0;
             align-items: center;
+            gap: 24px;
         }
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
-        padding-bottom: 16px;
     }
-    &__icon {
+
+    &__searchbar-container {
         @include tablet {
-            padding: 16px 0;
-            margin-left: 16px;
+            width: auto;
+            margin: 0;
         }
-        display: inline;
+        display: flex;
+        margin-bottom: 16px;
+        justify-content: space-between;
+        gap: 16px;
+        width: 100%;
     }
 }

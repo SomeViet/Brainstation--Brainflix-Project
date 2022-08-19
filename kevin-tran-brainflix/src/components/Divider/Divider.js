@@ -1,9 +1,9 @@
 import "./Divider.scss";
 
-function Divider() {
+function Divider(props) {
     return (
         <>
-            <hr className="divider" />
+            <hr className={props.lineClass} />
         </>
     );
 }
