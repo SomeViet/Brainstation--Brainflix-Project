@@ -1,6 +1,7 @@
 @use "../../styles/partials/mediaqueries" as *;
 
 .usericon {
+    //comments
     @include tablet {
         max-width: 40px;
         border-radius: 50%;
@@ -15,6 +16,7 @@
     object-fit: cover;
 
     &__header {
+        //header within searchbar
         @include tablet {
             display: none;
         }
@@ -24,7 +26,8 @@
         height: 36px;
         object-fit: cover;
 
-        &--tablet {
+        &-tablet {
+            //header outside search bar
             @include tablet {
                 max-width: 40px;
                 border-radius: 50%;

@@ -7,7 +7,7 @@
         @include labelbutton;
         @include tablet {
             width: auto;
-            margin: 16px 16px 16px 0;
+            // margin: 16px 16px 16px 0;
         }
         background-color: $brainflix-blue;
         height: 40px;
@@ -23,7 +23,7 @@
     &__comments {
         @extend .button__header;
         @include tablet {
-            margin: 0 16px 16px 0;
+            // margin: 0 16px 16px 0;
         }
     }
 

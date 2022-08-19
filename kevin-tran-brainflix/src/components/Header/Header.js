@@ -16,7 +16,7 @@ function Header() {
                 </div>
                 <div className="header__rightcontainer">
                     <form className="header__form">
-                        <div className="header__searchbar">
+                        <div className="header__searchbar-container">
                             <SearchBar />
                             <UserIcon
                                 userIcon={userAvatar}
@@ -32,7 +32,7 @@ function Header() {
                     <div className="header__icon">
                         <UserIcon
                             userIcon={userAvatar}
-                            className="usericon__header--tablet"
+                            className="usericon__header-tablet"
                         />
                     </div>
                 </div>

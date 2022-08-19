@@ -23,7 +23,7 @@
         display: flex;
         justify-content: center;
     }
-    &__searchbar {
+    &__searchbar-container {
         @include tablet {
             padding: 16px 0;
             width: auto;
@@ -36,6 +36,7 @@
     &__form {
         @include tablet {
             padding: 0;
+            align-items: center;
         }
         display: flex;
         flex-wrap: wrap;
@@ -45,6 +46,7 @@
     &__icon {
         @include tablet {
             padding: 16px 0;
+            margin-left: 16px;
         }
         display: inline;
     }
