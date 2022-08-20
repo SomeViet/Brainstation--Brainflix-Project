@@ -29,6 +29,7 @@ function Comments() {
                 <CommentsHistory />
                 <CommentsHistory />
                 <CommentsHistory />
+                {/* <Divider /> */}
             </div>
         </>
     );

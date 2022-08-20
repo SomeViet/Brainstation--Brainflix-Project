@@ -1,0 +1,35 @@
+@use "../../styles/partials/typekit.scss" as *;
+@use "../../styles/partials/variables.scss" as *;
+@use "../../styles/partials/mediaqueries.scss" as *;
+
+.nextvideocard {
+    @include tablet {
+        max-width: 300px;
+    }
+    display: flex;
+    gap: 16px;
+
+    &__thumbnail {
+        border-radius: 4px;
+        max-width: 110px;
+
+        background-color: $mercury;
+        object-fit: cover;
+        object-position: 0% 30%;
+    }
+
+    &__right-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    &__video-title {
+        @include subheader;
+        margin: 0;
+    }
+
+    &__video-author {
+        @include bodycopy;
+    }
+}

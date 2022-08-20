@@ -16,7 +16,7 @@ console.log(videoDataDetails);
 function CommentsHistory() {
     return (
         <>
-            <Divider className={"divider"} />
+            <Divider lineClass={"divider"} />
             <div className="comhistory">
                 <BlankIcon />
                 <div className="comhistory__right-container">

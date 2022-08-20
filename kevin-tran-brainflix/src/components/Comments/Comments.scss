@@ -8,6 +8,9 @@
     @include tablet {
         margin: 24px auto;
     }
+    @include desktop {
+        width: auto;
+    }
     margin: 16px auto;
 
     &__count {

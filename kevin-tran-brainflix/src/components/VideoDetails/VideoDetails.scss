@@ -8,6 +8,9 @@
     @include tablet {
         margin: 36px auto 24px auto;
     }
+    @include desktop {
+        width: auto;
+    }
     margin: 24px auto 16px auto;
 
     &__header {

@@ -6,6 +6,9 @@
     @include tablet {
         margin: 24px auto;
     }
+    @include desktop {
+        margin: 24px auto 0px auto;
+    }
     background-color: $brainflix-darkblack;
     margin: 16px auto;
 

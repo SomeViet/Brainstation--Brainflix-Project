@@ -12,8 +12,10 @@ let videoDataDetails = videoDetails1;
 function Main() {
     return (
         <>
-            <VideoDetails />
-            <Comments />
+            <div className="main">
+                <VideoDetails />
+                <Comments />
+            </div>
         </>
     );
 }
