@@ -27,8 +27,6 @@ function Comments() {
                     <CommentsInput />
                 </div>
                 <CommentsHistory />
-                <CommentsHistory />
-                <CommentsHistory />
                 {/* <Divider /> */}
             </div>
         </>

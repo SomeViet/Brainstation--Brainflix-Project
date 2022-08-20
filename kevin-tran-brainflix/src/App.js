@@ -4,21 +4,27 @@ import Main from "./components/Main/Main";
 import HeroVideo from "./components/HeroVideo/HeroVideo";
 import NextVideo from "./components/NextVideo/NextVideo";
 import VerticalLine from "./components/VerticalLine/VerticalLine";
+import React from "react";
+import videoData from "./data/video-details.json";
 
-function App() {
-    return (
-        <>
-            <Header />
-            <HeroVideo />
-            <div className="app__container">
-                <Main />
-                <div class="app__vertical-line">
-                    <VerticalLine />
+class App extends React.Component {
+    state = { data: videoData };
+
+    render() {
+        return (
+            <>
+                <Header />
+                <HeroVideo heroImage={this.state.data} />
+                <div className="app__container">
+                    <Main mainData={this.state.data} />
+                    <div className="app__vertical-line">
+                        <VerticalLine />
+                    </div>
+                    <NextVideo />
                 </div>
-                <NextVideo />
-            </div>
-        </>
-    );
+            </>
+        );
+    }
 }
 
 export default App;

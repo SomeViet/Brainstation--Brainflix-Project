@@ -1,16 +1,11 @@
 import "./NextVideoCard.scss";
-import videoDetails from "../../data/video-details.json";
-
-let videoDataDetails = videoDetails;
-
-console.log(videoDataDetails);
 
 function NextVideoCard() {
     return (
         <>
             <div className="nextvideocard">
                 <img
-                    src={videoDataDetails[6].image}
+                    src={""}
                     alt="next video thumbnail"
                     className="nextvideocard__thumbnail"
                 />

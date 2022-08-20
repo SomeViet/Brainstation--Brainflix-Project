@@ -1,15 +1,24 @@
 import "./Likes.scss";
 import likesIcon from "../../assets/images/likes.svg";
+import React from "react";
 
-function Likes() {
-    return (
-        <>
-            <div className="likes">
-                <img src={likesIcon} className="likes__icon" alt="likes icon" />
-                <div className="likes__count">1524564 Likes</div>
-            </div>
-        </>
-    );
+class Likes extends React.Component {
+    render() {
+        return (
+            <>
+                <div className="likes">
+                    <img
+                        src={likesIcon}
+                        className="likes__icon"
+                        alt="likes icon"
+                    />
+                    <div className="likes__count">
+                        {this.props.mainData[0].likes}
+                    </div>
+                </div>
+            </>
+        );
+    }
 }
 
 export default Likes;
