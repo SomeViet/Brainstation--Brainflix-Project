@@ -13,27 +13,35 @@ class App extends React.Component {
         super();
         this.heroData = videoDataDetails;
         this.nextData = videoData;
+        // have the initial video load from index 0
         this.heroDataCurrent = this.heroData.find((var1) => {
-            return var1.id == "c05b9a93-8682-4ab6-aff2-92ebb4bbfc14";
+            return var1.id === this.heroData[0].id;
         });
-
+        this.nextDataCurrent = this.heroData.filter((var1) => {
+            return var1.id !== this.heroData[0].id;
+        });
         this.state = {
             currentHero: this.heroDataCurrent,
-            dataSummary: this.nextData,
+            dataSummary: this.nextDataCurrent,
         };
     }
 
-    // changeVideo = () => {
-    //     this.setState({
-    //         currentHero: this.heroData.find((var1) => {
-    //             return var1.id == "c05b9a93-8682-4ab6-aff2-92ebb4bbfc14";
-    //         }),
-    //     });
-    // };
+    changeVideo = (videoid) => {
+        this.setState({
+            // on-click, change herovideo based on nextvideo sidebar click
+            currentHero: this.heroData.find((var1) => {
+                return var1.id === videoid;
+            }),
+            // exclude main video from nextvideo sidebar
+            dataSummary: this.nextData.filter((var1) => {
+                return var1.id !== videoid;
+            }),
+        });
+        // scroll to top to view hero-video when calling the onClick changeVideo function
+        window.scrollTo(0, 0);
+    };
 
     render() {
-        // this.changeVideo();
-        console.log(this.state.currentHero);
         return (
             <>
                 <Header />
@@ -43,7 +51,10 @@ class App extends React.Component {
                     <div className="app__vertical-line">
                         <VerticalLine />
                     </div>
-                    <NextVideo nextVideoData={this.state.dataSummary} />
+                    <NextVideo
+                        nextVideoData={this.state.dataSummary}
+                        changeVideo={this.changeVideo}
+                    />
                 </div>
             </>
         );

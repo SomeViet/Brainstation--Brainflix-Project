@@ -15,7 +15,6 @@ function CommentsInput() {
                 // "Comment" attributes
                 buttonText={"COMMENT"}
                 buttonIcon={CommentIcon}
-                buttonClass={"button__comments"}
             />
         </form>
     );

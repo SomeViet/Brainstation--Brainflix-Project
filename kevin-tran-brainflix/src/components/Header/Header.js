@@ -9,33 +9,28 @@ import Logo from "../Logo/Logo";
 
 function Header() {
     return (
-        <>
-            <header className="header">
-                <div className="header__logo">
-                    <Logo logoImg={logo} />
+        <header className="header">
+            <div className="header__logo">
+                <Logo logoImg={logo} />
+            </div>
+            <form className="header__form">
+                <div className="header__searchbar-container">
+                    <SearchBar />
+                    <span className="header__icon-mobile">
+                        <UserIcon userIcon={userAvatar} />
+                    </span>
                 </div>
-                <form className="header__form">
-                    <div className="header__searchbar-container">
-                        <SearchBar />
-                        <UserIcon
-                            userIcon={userAvatar}
-                            className="usericon__header"
-                        />
-                    </div>
 
-                    <Button
-                        // "Upload" attributes
-                        buttonText={"UPLOAD"}
-                        buttonIcon={upload}
-                        buttonClass={"button__header"}
-                    />
-                    <UserIcon
-                        userIcon={userAvatar}
-                        className="usericon__header-tablet"
-                    />
-                </form>
-            </header>
-        </>
+                <Button
+                    // "Upload" attributes
+                    buttonText={"UPLOAD"}
+                    buttonIcon={upload}
+                />
+                <span className="header__icon-tablet">
+                    <UserIcon userIcon={userAvatar} />
+                </span>
+            </form>
+        </header>
     );
 }
 

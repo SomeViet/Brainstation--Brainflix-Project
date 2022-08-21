@@ -45,4 +45,17 @@
         gap: 16px;
         width: 100%;
     }
+
+    &__icon-mobile {
+        @include tablet {
+            display: none;
+        }
+    }
+
+    &__icon-tablet {
+        display: none;
+        @include tablet {
+            display: contents;
+        }
+    }
 }

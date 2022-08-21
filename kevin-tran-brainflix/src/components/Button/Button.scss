@@ -3,28 +3,22 @@
 @use "../../styles/partials/mediaqueries" as *;
 
 .button {
-    &__header {
-        @include labelbutton;
-        @include tablet {
-            width: auto;
-            // margin: 16px 16px 16px 0;
-        }
-        background-color: $brainflix-blue;
-        height: 40px;
-        border: 0px;
-        min-width: 150px;
-        width: 100%;
-        padding: 0 32px;
-        border-radius: 4px;
-        color: $white;
-        position: relative;
+    @include labelbutton;
+    @include tablet {
+        width: auto;
     }
+    background-color: $brainflix-blue;
+    height: 40px;
+    border: 0px;
+    min-width: 150px;
+    width: 100%;
+    padding: 0 32px;
+    border-radius: 4px;
+    color: $white;
+    position: relative;
 
-    &__comments {
-        @extend .button__header;
-        @include tablet {
-            // margin: 0 16px 16px 0;
-        }
+    &:hover {
+        background-color: $brainflix-darkblue;
     }
 
     &__icon {

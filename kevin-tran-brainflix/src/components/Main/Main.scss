@@ -1,7 +1,10 @@
-@use "styles/partials/mediaqueries" as *;
-@use "styles/partials/global" as *;
-@use "styles/partials/variables" as *;
-@use "styles/partials/typekit" as *;
+@use "../../styles/partials/mediaqueries" as *;
+@use "../../styles/partials/global" as *;
+@use "../../styles/partials/variables" as *;
 
 .main {
+    @include tablet {
+        margin: 24px auto;
+    }
+    margin: 16px auto;
 }

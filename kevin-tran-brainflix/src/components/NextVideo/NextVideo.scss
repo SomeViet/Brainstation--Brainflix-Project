@@ -7,16 +7,20 @@
     @include page-sidemargins;
     @include tablet {
         gap: 24px;
+        margin: 24px auto;
     }
     @include desktop {
-        margin: 0 auto;
+        max-width: 300px;
+        min-width: 300px;
     }
     display: flex;
     flex-direction: column;
     gap: 16px;
+    margin: 16px auto;
 
     &__header {
         @include labelbutton;
         color: $silver;
+        margin: 0;
     }
 }

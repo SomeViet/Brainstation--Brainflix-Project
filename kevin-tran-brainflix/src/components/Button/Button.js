@@ -3,10 +3,10 @@ import "./Button.scss";
 function Button(props) {
     let buttonText = props.buttonText;
     let buttonIcon = props.buttonIcon;
-    let buttonClass = props.buttonClass;
     return (
         <>
-            <button type="submit" className={buttonClass}>
+            {/* button-type button to prevent form submission */}
+            <button type="button" className="button">
                 <img
                     src={buttonIcon}
                     alt="button icon"

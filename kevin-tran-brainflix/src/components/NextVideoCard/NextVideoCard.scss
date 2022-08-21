@@ -3,19 +3,22 @@
 @use "../../styles/partials/mediaqueries.scss" as *;
 
 .nextvideocard {
-    @include tablet {
-        max-width: 300px;
-    }
     display: flex;
     gap: 16px;
+    max-width: 300px;
+    // simulating a link pointer
+    :hover {
+        cursor: pointer;
+    }
 
     &__thumbnail {
         border-radius: 4px;
-        width: 110px;
+        max-width: 110px;
+        max-height: 66px;
+        aspect-ratio: 16/9;
         background-color: $mercury;
         object-fit: cover;
         object-position: 0% 30%;
-        aspect-ratio: 16/9;
     }
 
     &__right-container {
@@ -27,9 +30,11 @@
     &__video-title {
         @include subheader;
         margin: 0;
+        color: $brainflix-black;
     }
 
     &__video-author {
         @include bodycopy;
+        color: $brainflix-black;
     }
 }

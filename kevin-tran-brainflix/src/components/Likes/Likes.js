@@ -5,18 +5,10 @@ import React from "react";
 class Likes extends React.Component {
     render() {
         return (
-            <>
-                <div className="likes">
-                    <img
-                        src={likesIcon}
-                        className="likes__icon"
-                        alt="likes icon"
-                    />
-                    <div className="likes__count">
-                        {this.props.mainData.likes}
-                    </div>
-                </div>
-            </>
+            <div className="likes">
+                <img src={likesIcon} className="likes__icon" alt="likes icon" />
+                <div className="likes__count">{this.props.mainData.likes}</div>
+            </div>
         );
     }
 }

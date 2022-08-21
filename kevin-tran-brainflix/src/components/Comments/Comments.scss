@@ -6,12 +6,12 @@
 .comments {
     @include page-sidemargins;
     @include tablet {
-        margin: 24px auto;
+        margin-top: 24px;
     }
     @include desktop {
         width: auto;
     }
-    margin: 16px auto;
+    margin-top: 16px;
 
     &__count {
         @include subheader;

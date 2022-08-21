@@ -2,12 +2,7 @@ import "./UserIcon.scss";
 
 function UserIcon(props) {
     let userIcon = props.userIcon;
-    let userIconClass = props.className;
-    return (
-        <>
-            <img src={userIcon} alt="user icon" className={userIconClass} />
-        </>
-    );
+    return <img src={userIcon} alt="user icon" className="usericon" />;
 }
 
 export default UserIcon;

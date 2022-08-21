@@ -5,18 +5,10 @@ import React from "react";
 class Views extends React.Component {
     render() {
         return (
-            <>
-                <div className="views">
-                    <img
-                        src={viewIcon}
-                        className="views__icon"
-                        alt="view icon"
-                    />
-                    <div className="views__count">
-                        {this.props.mainData.views}
-                    </div>
-                </div>
-            </>
+            <div className="views">
+                <img src={viewIcon} className="views__icon" alt="view icon" />
+                <div className="views__count">{this.props.mainData.views}</div>
+            </div>
         );
     }
 }
