@@ -1,6 +1,5 @@
 import VideoDetails from "../VideoDetails/VideoDetails";
 import Comments from "../Comments/Comments";
-
 import videoDetails1 from "../../data/video-details.json";
 import React from "react";
 
@@ -16,7 +15,7 @@ class Main extends React.Component {
             <>
                 <div className="main">
                     <VideoDetails mainData={this.props.mainData} />
-                    <Comments />
+                    <Comments mainData={this.props.mainData} />
                 </div>
             </>
         );

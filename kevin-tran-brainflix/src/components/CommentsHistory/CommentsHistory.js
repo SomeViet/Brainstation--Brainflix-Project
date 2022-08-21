@@ -10,17 +10,18 @@ class CommentsHistory extends React.Component {
             <>
                 <Divider lineClass={"divider"} />
                 <div className="comhistory">
+                    {/* Temporary Blank Icon */}
                     <BlankIcon />
                     <div className="comhistory__right-container">
                         <div className="comhistory__right-subheader">
-                            <span className="comhistory__name"> Ryan</span>
-                            {/* <DateStamp /> */}
+                            <span className="comhistory__name">
+                                {" "}
+                                {this.props.name}
+                            </span>
+                            <DateStamp mainData={this.props} />
                         </div>
                         <p className="comhistory__comment">
-                            They BLEW the ROOF off at their last event, once
-                            everyone started figuring out they were going. This
-                            is still simply the greatest opening of an event I
-                            have EVER witnessed.
+                            {this.props.comment}
                         </p>
                     </div>
                 </div>

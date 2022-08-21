@@ -1,25 +1,29 @@
+import React from "react";
 import "./NextVideoCard.scss";
 
-function NextVideoCard() {
-    return (
-        <>
-            <div className="nextvideocard">
-                <img
-                    src={""}
-                    alt="next video thumbnail"
-                    className="nextvideocard__thumbnail"
-                />
-                <div className="nextvideocard__right-container">
-                    <p className="nextvideocard__video-title">
-                        Become A Travel Pro In One Easy Lesson
-                    </p>
-                    <span className="nextvideocard__video-author">
-                        Todd Welch
-                    </span>
+class NextVideoCard extends React.Component {
+    render() {
+        console.log(this.props);
+        return (
+            <>
+                <div className="nextvideocard">
+                    <img
+                        src={this.props.thumbnail}
+                        alt="next video thumbnail"
+                        className="nextvideocard__thumbnail"
+                    />
+                    <div className="nextvideocard__right-container">
+                        <p className="nextvideocard__video-title">
+                            {this.props.title}
+                        </p>
+                        <span className="nextvideocard__video-author">
+                            {this.props.channel}
+                        </span>
+                    </div>
                 </div>
-            </div>
-        </>
-    );
+            </>
+        );
+    }
 }
 
 export default NextVideoCard;

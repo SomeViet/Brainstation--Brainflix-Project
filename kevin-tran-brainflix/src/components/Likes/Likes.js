@@ -13,7 +13,7 @@ class Likes extends React.Component {
                         alt="likes icon"
                     />
                     <div className="likes__count">
-                        {this.props.mainData[0].likes}
+                        {this.props.mainData.likes}
                     </div>
                 </div>
             </>

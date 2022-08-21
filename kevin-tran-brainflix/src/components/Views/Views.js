@@ -13,7 +13,7 @@ class Views extends React.Component {
                         alt="view icon"
                     />
                     <div className="views__count">
-                        {this.props.mainData[0].views}
+                        {this.props.mainData.views}
                     </div>
                 </div>
             </>

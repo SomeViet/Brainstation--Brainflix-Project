@@ -7,7 +7,7 @@ class DateStamp extends React.Component {
             year: "numeric",
             month: "2-digit",
             day: "2-digit",
-        }).format(this.props.mainData[0].timestamp);
+        }).format(this.props.mainData.timestamp);
 
         return (
             <>

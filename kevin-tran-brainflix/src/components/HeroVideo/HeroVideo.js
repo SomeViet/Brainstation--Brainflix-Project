@@ -10,7 +10,7 @@ class HeroVideo extends React.Component {
                     <div className="herovideo__container">
                         <video
                             controls
-                            poster={this.props.heroImage[0].image}
+                            poster={this.props.heroImage.image}
                             className="herovideo__hero"
                         ></video>
                     </div>
