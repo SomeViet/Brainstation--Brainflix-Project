@@ -6,19 +6,19 @@
 .videodetails {
     @include page-sidemargins;
     @include tablet {
-        margin: 36px auto 24px auto;
+        margin: 2.25rem auto 1.5rem auto;
     }
     @include desktop {
         width: auto;
     }
-    margin: 24px auto 16px auto;
+    margin: 1.5rem auto 1rem auto;
 
     &__header {
         @include tablet {
-            margin: 36px 0 8px 0;
+            margin: 2.25rem 0 0.5rem 0;
         }
         @include pageheader;
-        margin: 24 0 16px 0;
+        margin: 24 0 1rem 0;
         color: $brainflix-black;
     }
 
@@ -30,19 +30,19 @@
 
     &__subheader {
         @include tablet {
-            margin: 8px auto;
+            margin: 0.5rem auto;
         }
         display: flex;
-        margin: 16px auto;
+        margin: 1rem auto;
 
         &-left {
             @include tablet {
                 flex-direction: row;
-                gap: 24px;
+                gap: 1.5rem;
             }
             display: flex;
             flex-direction: column;
-            gap: 16px;
+            gap: 1rem;
             width: 50%;
         }
 
@@ -58,9 +58,9 @@
     &__description {
         @include bodycopy;
         @include tablet {
-            margin: 24px auto;
+            margin: 1.5rem auto;
         }
-        margin: 16px auto;
+        margin: 1rem auto;
         color: $brainflix-black;
     }
 }

@@ -4,17 +4,17 @@
 
 .nextvideocard {
     display: flex;
-    gap: 16px;
-    max-width: 300px;
+    gap: 1rem;
+    max-width: 18.75rem;
     // simulating a link pointer
     :hover {
         cursor: pointer;
     }
 
     &__thumbnail {
-        border-radius: 4px;
-        max-width: 110px;
-        max-height: 66px;
+        border-radius: 0.25rem;
+        max-width: 6.875rem;
+        max-height: 4.125rem;
         aspect-ratio: 16/9;
         background-color: $mercury;
         object-fit: cover;

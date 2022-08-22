@@ -8,12 +8,12 @@
         width: auto;
     }
     background-color: $brainflix-blue;
-    height: 40px;
-    border: 0px;
-    min-width: 150px;
+    height: 2.5rem;
+    border: 0rem;
+    min-width: 9.375rem;
     width: 100%;
-    padding: 0 32px;
-    border-radius: 4px;
+    padding: 0 2rem;
+    border-radius: 0.25rem;
     color: $white;
     position: relative;
 
@@ -23,7 +23,7 @@
 
     &__icon {
         position: absolute;
-        left: 10px;
+        left: 0.625rem;
         top: 50%;
         transform: translate(0, -50%);
     }

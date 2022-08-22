@@ -4,13 +4,13 @@
 
 .herovideo {
     @include tablet {
-        margin: 24px auto;
+        margin: 1.5rem auto;
     }
     @include desktop {
-        margin: 24px auto 0px auto;
+        margin: 1.5rem auto 0rem auto;
     }
     background-color: $brainflix-darkblack;
-    margin: 16px auto;
+    margin: 1rem auto;
 
     &__container {
         @include desktop {

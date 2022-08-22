@@ -6,12 +6,12 @@
     align-items: stretch;
 
     &__icon {
-        margin-right: 8px;
+        margin-right: 0.5rem;
     }
 
     &__count {
         @include bodycopy;
-        font-size: 13px;
+        font-size: 0.8125rem;
         font-weight: 400;
         color: $silver;
     }

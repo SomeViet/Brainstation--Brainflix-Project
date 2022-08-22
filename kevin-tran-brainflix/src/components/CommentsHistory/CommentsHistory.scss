@@ -5,20 +5,20 @@
 
 .comhistory {
     @include tablet {
-        gap: 24px;
-        margin: 24px auto;
+        gap: 1.5rem;
+        margin: 1.5rem auto;
     }
     display: flex;
-    gap: 16px;
-    margin: 16px auto;
+    gap: 1rem;
+    margin: 1rem auto;
 
     &__right-container {
         @include tablet {
-            gap: 8px;
+            gap: 0.5rem;
         }
         display: flex;
         flex-direction: column;
-        gap: 8px;
+        gap: 0.5rem;
         width: 100%;
     }
 

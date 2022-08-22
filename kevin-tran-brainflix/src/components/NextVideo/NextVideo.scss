@@ -6,17 +6,17 @@
 .nextvideo {
     @include page-sidemargins;
     @include tablet {
-        gap: 24px;
-        margin: 24px auto;
+        gap: 1.5rem;
+        margin: 1.5rem auto;
     }
     @include desktop {
-        max-width: 300px;
-        min-width: 300px;
+        max-width: 18.75rem;
+        min-width: 18.75rem;
     }
     display: flex;
     flex-direction: column;
-    gap: 16px;
-    margin: 16px auto;
+    gap: 1rem;
+    margin: 1rem auto;
 
     &__header {
         @include labelbutton;

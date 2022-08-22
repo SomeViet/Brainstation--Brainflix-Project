@@ -9,9 +9,9 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        margin: 24px auto;
+        margin: 1.5rem auto;
     }
-    margin: 16px auto;
+    margin: 1rem auto;
 
     &__logo {
         @include tablet {
@@ -20,14 +20,14 @@
         }
         display: flex;
         justify-content: center;
-        margin-bottom: 16px;
+        margin-bottom: 1rem;
     }
 
     &__form {
         @include tablet {
             padding: 0;
             align-items: center;
-            gap: 24px;
+            gap: 1.5rem;
         }
         display: flex;
         flex-wrap: wrap;
@@ -40,9 +40,9 @@
             margin: 0;
         }
         display: flex;
-        margin-bottom: 16px;
+        margin-bottom: 1rem;
         justify-content: space-between;
-        gap: 16px;
+        gap: 1rem;
         width: 100%;
     }
 
