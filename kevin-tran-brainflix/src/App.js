@@ -1,61 +1,21 @@
 import "./App.scss";
 import Header from "./components/Header/Header";
-import Main from "./components/Main/Main";
-import HeroVideo from "./components/HeroVideo/HeroVideo";
-import NextVideo from "./components/NextVideo/NextVideo";
-import VerticalLine from "./components/VerticalLine/VerticalLine";
 import React from "react";
-import videoDataDetails from "./data/video-details.json";
-import videoData from "./data/videos.json";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import Home from "./pages/Home/Home";
+import VideoUpload from "./pages/VideoUpload/VideoUpload";
 
 class App extends React.Component {
-    constructor() {
-        super();
-        this.heroData = videoDataDetails;
-        this.nextData = videoData;
-        // have the initial video load from index 0
-        this.heroDataCurrent = this.heroData.find((var1) => {
-            return var1.id === this.heroData[0].id;
-        });
-        this.nextDataCurrent = this.heroData.filter((var1) => {
-            return var1.id !== this.heroData[0].id;
-        });
-        this.state = {
-            currentHero: this.heroDataCurrent,
-            dataSummary: this.nextDataCurrent,
-        };
-    }
-
-    changeVideo = (videoid) => {
-        this.setState({
-            // on-click, change herovideo based on nextvideo sidebar click
-            currentHero: this.heroData.find((var1) => {
-                return var1.id === videoid;
-            }),
-            // exclude main video from nextvideo sidebar
-            dataSummary: this.nextData.filter((var1) => {
-                return var1.id !== videoid;
-            }),
-        });
-        // scroll to top to view hero-video when calling the onClick changeVideo function
-        window.scrollTo(0, 0);
-    };
-
     render() {
         return (
             <>
-                <Header />
-                <HeroVideo heroImage={this.state.currentHero} />
-                <div className="app__container">
-                    <Main mainData={this.state.currentHero} />
-                    <div className="app__vertical-line">
-                        <VerticalLine />
-                    </div>
-                    <NextVideo
-                        nextVideoData={this.state.dataSummary}
-                        changeVideo={this.changeVideo}
-                    />
-                </div>
+                <BrowserRouter>
+                    <Header />
+                    <Switch>
+                        <Route path="/" exact component={Home} />
+                        <Route path="/vidupload" component={VideoUpload} />
+                    </Switch>
+                </BrowserRouter>
             </>
         );
     }

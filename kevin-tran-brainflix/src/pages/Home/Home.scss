@@ -1,0 +1,21 @@
+@use "../../styles/partials/mediaqueries" as *;
+@use "../../styles/partials/global" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/typekit" as *;
+
+.app {
+    &__container {
+        @include desktop {
+            display: flex;
+            gap: 1.5rem;
+            @include page-sidemargins;
+        }
+    }
+
+    &__vertical-line {
+        @include desktop {
+            display: contents;
+        }
+        display: none;
+    }
+}

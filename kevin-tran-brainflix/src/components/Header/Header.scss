@@ -21,6 +21,11 @@
         display: flex;
         justify-content: center;
         margin-bottom: 1rem;
+        width: inherit;
+    }
+
+    &__home-link {
+        width: auto;
     }
 
     &__form {
@@ -57,5 +62,12 @@
         @include tablet {
             display: contents;
         }
+    }
+
+    &__upload-link {
+        @include tablet {
+            width: auto;
+        }
+        width: 100%;
     }
 }
