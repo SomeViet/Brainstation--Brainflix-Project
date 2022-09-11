@@ -10,6 +10,13 @@
         margin: 0;
     }
     &__image {
+        @include tablet {
+            width: 50%;
+        }
+        @include desktop {
+            width: 411px;
+        }
+        display: block;
         width: 100%;
         border-radius: 4px;
     }
