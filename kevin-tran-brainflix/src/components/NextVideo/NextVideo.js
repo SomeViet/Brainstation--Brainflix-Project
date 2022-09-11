@@ -7,18 +7,20 @@ class NextVideo extends React.Component {
         return (
             <div className="nextvideo">
                 <h3 className="nextvideo__header">NEXT VIDEO</h3>
-                {this.props.nextVideoData.map((var1) => {
-                    return (
-                        <NextVideoCard
-                            key={var1.id}
-                            id={var1.id}
-                            thumbnail={var1.image}
-                            channel={var1.channel}
-                            title={var1.title}
-                            changeVideo={this.props.changeVideo}
-                        />
-                    );
-                })}
+                {this.props.nextVideoData
+                    ? this.props.nextVideoData.map((var1) => {
+                          return (
+                              <NextVideoCard
+                                  key={var1.id}
+                                  id={var1.id}
+                                  thumbnail={var1.image}
+                                  channel={var1.channel}
+                                  title={var1.title}
+                                  changeVideo={this.props.changeVideo}
+                              />
+                          );
+                      })
+                    : null}
             </div>
         );
     }

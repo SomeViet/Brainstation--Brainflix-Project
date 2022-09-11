@@ -26,11 +26,7 @@ function Header() {
                     </span>
                 </div>
                 <Link to="/vidupload" className="header__upload-link">
-                    <Button
-                        // "Upload" attributes
-                        buttonText={"UPLOAD"}
-                        buttonIcon={upload}
-                    />
+                    <Button buttonText={"UPLOAD"} buttonIcon={upload} />
                 </Link>
                 <span className="header__icon-tablet">
                     <UserIcon userIcon={userAvatar} />

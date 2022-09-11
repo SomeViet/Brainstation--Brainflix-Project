@@ -1,5 +1,5 @@
 import "./App.scss";
-import Header from "./components/Header/Header";
+import Header from "./components/Header";
 import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Home from "./pages/Home/Home";
@@ -14,6 +14,7 @@ class App extends React.Component {
                     <Switch>
                         <Route path="/" exact component={Home} />
                         <Route path="/vidupload" component={VideoUpload} />
+                        <Route path={"/:videoId"} component={Home} />
                     </Switch>
                 </BrowserRouter>
             </>

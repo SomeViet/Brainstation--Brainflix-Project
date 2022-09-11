@@ -11,7 +11,10 @@ class Comments extends React.Component {
         return (
             <div className="comments">
                 <h2 className="comments__count">
-                    {this.props.mainData.comments.length} Comments
+                    {this.props.mainData.comments
+                        ? this.props.mainData.comments.length
+                        : null}{" "}
+                    Comments
                 </h2>
                 <div className="comments__subheader">
                     {/* This is for alignment */}
@@ -23,16 +26,19 @@ class Comments extends React.Component {
                     <UserIcon userIcon={userAvatar} className="usericon" />
                     <CommentsInput />
                 </div>
-                {this.props.mainData.comments.map((var1, index) => {
-                    return (
-                        <CommentsHistory
-                            key={index}
-                            comment={var1.comment}
-                            timestamp={var1.timestamp}
-                            name={var1.name}
-                        />
-                    );
-                })}
+
+                {this.props.mainData.comments
+                    ? this.props.mainData.comments.map((var1, index) => {
+                          return (
+                              <CommentsHistory
+                                  key={index}
+                                  comment={var1.comment}
+                                  timestamp={var1.timestamp}
+                                  name={var1.name}
+                              />
+                          );
+                      })
+                    : null}
                 <Divider lineClass={"divider"} />
             </div>
         );
