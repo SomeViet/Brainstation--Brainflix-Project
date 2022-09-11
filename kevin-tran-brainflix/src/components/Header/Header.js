@@ -9,7 +9,6 @@ import Logo from "../Logo/Logo";
 import { Link } from "react-router-dom";
 
 function Header() {
-    // console.log(this.props);
     return (
         <header className="header">
             <div className="header__logo">

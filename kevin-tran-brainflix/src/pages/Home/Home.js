@@ -25,7 +25,7 @@ class Home extends React.Component {
             dataSummary: [],
         };
     }
-    // GET video data
+    // GET video data for mounting
     getVideos = () =>
         axios
             .get(
@@ -36,20 +36,28 @@ class Home extends React.Component {
             .then((response) => {
                 this.videoData = response.data;
                 // invoke to get video detail data
-                this.getVideoDetail(this.videoData[0].id);
-                this.nextVideoData = response.data.filter((var1) => {
-                    return var1.id !== response.data[0].id;
-                });
+                const videoParams = this.props.match.params.videoId;
+                if (!videoParams) {
+                    this.getVideoDetail(this.videoData[0].id);
+                    this.nextVideoData = response.data.filter((var1) => {
+                        return var1.id !== response.data[0].id;
+                    });
+                } else {
+                    this.getVideoDetail(videoParams);
+                    this.nextVideoData = response.data.filter((var1) => {
+                        return var1.id !== videoParams;
+                    });
+                }
             })
             .catch((e) => {
                 console.error(e);
             });
 
     // GET video detail data with passed information from first axios
-    getVideoDetail = (mainHeroId) =>
+    getVideoDetail = (videoId) => {
         axios
             .get(
-                `https://project-2-api.herokuapp.com/videos/${mainHeroId}?api_key=${this.apiKey}`
+                `https://project-2-api.herokuapp.com/videos/${videoId}?api_key=${this.apiKey}`
             )
             .then((response) => {
                 this.mainHeroDataDetails = response.data;
@@ -61,36 +69,56 @@ class Home extends React.Component {
             .catch((e) => {
                 console.error(e);
             });
-
+    };
     // Lifecycle - Mount Initialization
     componentDidMount() {
         this.getVideos();
     }
 
-    changeVideo = (videoid) => {
-        axios
-            .get(
-                `https://project-2-api.herokuapp.com/videos/${videoid}?api_key=${this.apiKey}`
-            )
-            .then((response) => {
-                this.mainHeroDataDetails = response.data;
-                this.setState({
-                    // on-click, change herovideo based on nextvideo sidebar click
-                    currentHero: this.mainHeroDataDetails,
-
-                    // exclude main video from nextvideo sidebar
-                    dataSummary: this.videoData.filter((var1) => {
-                        return var1.id !== videoid;
-                    }),
+    // Lifecycle - Updater
+    componentDidUpdate(prevProps) {
+        const videoIdParam = this.props.match.params.videoId;
+        const prevId = prevProps.match.params.videoId;
+        if (videoIdParam) {
+            if (prevId !== videoIdParam) {
+                console.log(videoIdParam);
+                axios
+                    .get(
+                        `https://project-2-api.herokuapp.com/videos/${this.props.match.params.videoId}?api_key=${this.apiKey}`
+                    )
+                    .then((response) => {
+                        this.nextVideoData = this.videoData.filter((var1) => {
+                            return var1.id !== videoIdParam;
+                        });
+                        this.setState({
+                            currentHero: response.data,
+                            dataSummary: this.nextVideoData,
+                        });
+                    })
+                    .catch((e) => {
+                        console.error(e);
+                    });
+            }
+        } else {
+            const videoId = this.videoData[0].id;
+            axios
+                .get(
+                    `https://project-2-api.herokuapp.com/videos/${videoId}?api_key=${this.apiKey}`
+                )
+                .then((response) => {
+                    this.nextVideoData = this.videoData.filter((var1) => {
+                        return var1.id !== videoId;
+                    });
+                    this.setState({
+                        currentHero: response.data,
+                        dataSummary: this.nextVideoData,
+                    });
+                })
+                .catch((e) => {
+                    console.error(e);
                 });
-            })
-            .catch((e) => {
-                console.error(e);
-            });
-
-        // scroll to top to view hero-video when calling the onClick changeVideo function
-        window.scrollTo(0, 0);
-    };
+        }
+    }
 
     render() {
         return (

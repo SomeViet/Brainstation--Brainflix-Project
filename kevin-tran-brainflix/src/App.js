@@ -14,7 +14,7 @@ class App extends React.Component {
                     <Switch>
                         <Route path="/" exact component={Home} />
                         <Route path="/vidupload" component={VideoUpload} />
-                        <Route path={"/:videoId"} component={Home} />
+                        <Route path="/:videoId" component={Home} />
                     </Switch>
                 </BrowserRouter>
             </>
