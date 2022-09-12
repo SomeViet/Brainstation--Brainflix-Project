@@ -4,6 +4,14 @@
 @use "../../styles/partials/mediaqueries" as *;
 
 .uploadforminput {
+    @include tablet {
+        gap: 24px;
+    }
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+
     &__input-container {
         @include tablet {
             gap: 24px;
@@ -37,6 +45,10 @@
         width: 100%;
         padding: 12px;
         box-sizing: border-box;
+        &:focus {
+            outline: none;
+            border: 0.125rem solid $brainflix-blue;
+        }
     }
 
     &__description-container {
@@ -68,5 +80,9 @@
         min-height: 36px;
         height: 72px;
         overflow: hidden;
+        &:focus {
+            outline: none;
+            border: 0.125rem solid $brainflix-blue;
+        }
     }
 }
