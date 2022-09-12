@@ -1,20 +1,16 @@
 import "./HeroVideo.scss";
 import React from "react";
 
-class HeroVideo extends React.Component {
-    render() {
-        return (
-            <main className="herovideo">
-                <div className="herovideo__container">
-                    <video
-                        controls
-                        poster={this.props.heroImage.image}
-                        className="herovideo__hero"
-                    ></video>
-                </div>
-            </main>
-        );
-    }
+export default function HeroVideo({ heroImage }) {
+    return (
+        <main className="herovideo">
+            <div className="herovideo__container">
+                <video
+                    controls
+                    poster={heroImage}
+                    className="herovideo__hero"
+                ></video>
+            </div>
+        </main>
+    );
 }
-
-export default HeroVideo;

@@ -2,7 +2,7 @@ import "./CommentsInput.scss";
 import Button from "../Button/Button";
 import CommentIcon from "../../assets/images/add_comment.svg";
 
-function CommentsInput() {
+export default function CommentsInput() {
     return (
         <form className="commentsinput">
             <textarea
@@ -19,5 +19,3 @@ function CommentsInput() {
         </form>
     );
 }
-
-export default CommentsInput;

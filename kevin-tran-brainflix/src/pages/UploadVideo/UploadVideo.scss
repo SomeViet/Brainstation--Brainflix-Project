@@ -1,0 +1,27 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/typekit" as *;
+@use "../../styles/partials/global" as *;
+@use "../../styles/partials/mediaqueries" as *;
+
+.uploadvideo {
+    @include page-sidemargins;
+    display: flex;
+    flex-direction: column;
+
+    &__header {
+        @include tablet {
+            margin: 36px 0 24px 0;
+        }
+        @include pageheader;
+        margin: 24px 0 16px 0;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    &__header-text {
+        @include pageheader;
+        color: $brainflix-black;
+        margin: 0;
+    }
+}

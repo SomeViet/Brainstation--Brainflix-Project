@@ -1,17 +1,17 @@
 import React from "react";
 import "./VideoPreview.scss";
 
-export default class VideoPreview extends React.Component {
-    render() {
-        return (
-            <>
+export default function VideoPreview(props) {
+    return (
+        <>
+            <div>
                 <h3 className="videopreview__label">VIDEO THUMBNAIL</h3>
                 <img
-                    src={this.props.videoPreview}
+                    src={props.videoPreview}
                     alt="this is an video"
                     className="videopreview__image"
                 />
-            </>
-        );
-    }
+            </div>
+        </>
+    );
 }

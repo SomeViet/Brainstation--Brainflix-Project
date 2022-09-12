@@ -81,7 +81,6 @@ class Home extends React.Component {
         const prevId = prevProps.match.params.videoId;
         if (videoIdParam) {
             if (prevId !== videoIdParam) {
-                console.log(videoIdParam);
                 axios
                     .get(
                         `https://project-2-api.herokuapp.com/videos/${this.props.match.params.videoId}?api_key=${this.apiKey}`
@@ -98,8 +97,10 @@ class Home extends React.Component {
                     .catch((e) => {
                         console.error(e);
                     });
+                return true;
             }
-        } else {
+        }
+        if (videoIdParam === undefined && prevId !== videoIdParam) {
             const videoId = this.videoData[0].id;
             axios
                 .get(
@@ -117,22 +118,22 @@ class Home extends React.Component {
                 .catch((e) => {
                     console.error(e);
                 });
+            return true;
         }
+        // Debugger for infinite loops - comment out during submission
+        return console.log("Done - Check for infinite loop");
     }
 
     render() {
         return (
             <>
-                <HeroVideo heroImage={this.state.currentHero} />
+                <HeroVideo heroImage={this.state.currentHero.image} />
                 <div className="app__container">
                     <Main mainData={this.state.currentHero} />
                     <div className="app__vertical-line">
                         <VerticalLine />
                     </div>
-                    <NextVideo
-                        nextVideoData={this.state.dataSummary}
-                        changeVideo={this.changeVideo}
-                    />
+                    <NextVideo nextVideoData={this.state.dataSummary} />
                 </div>
             </>
         );

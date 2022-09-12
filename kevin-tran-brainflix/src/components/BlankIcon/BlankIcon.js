@@ -1,7 +1,5 @@
 import "./BlankIcon.scss";
 
-function BlankIcon() {
+export default function BlankIcon() {
     return <div className="blankicon"></div>;
 }
-
-export default BlankIcon;

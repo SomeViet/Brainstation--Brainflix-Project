@@ -1,0 +1,69 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/typekit" as *;
+@use "../../styles/partials/global" as *;
+@use "../../styles/partials/mediaqueries" as *;
+
+.uploadform {
+    @include tablet {
+        gap: 24px;
+    }
+    gap: 16px;
+    display: flex;
+    flex-direction: column;
+
+    &__container {
+        @include tablet {
+            gap: 24px;
+        }
+        @include desktop {
+            flex-direction: row;
+        }
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    &__line-container {
+        @include tablet {
+            display: inline;
+        }
+        display: none;
+    }
+
+    &__upload-container {
+        @include tablet {
+            flex-direction: row-reverse;
+            gap: 24px;
+            margin-bottom: 24px;
+        }
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+        margin-bottom: 16px;
+    }
+
+    &__cancel {
+        @include tablet {
+            width: auto;
+        }
+        text-decoration: none;
+        height: 40px;
+        border: 0px;
+        min-width: 150px;
+        width: 100%;
+        position: relative;
+    }
+
+    &__cancel-text {
+        @include labelbutton;
+        font-family: "Avenir";
+        color: $brainflix-blue;
+        text-decoration: none;
+        margin: 0px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        position: absolute;
+    }
+}

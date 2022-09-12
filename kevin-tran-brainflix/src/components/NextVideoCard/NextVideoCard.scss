@@ -11,6 +11,10 @@
         cursor: pointer;
     }
 
+    &__link {
+        text-decoration: none;
+    }
+
     &__thumbnail {
         border-radius: 0.25rem;
         max-width: 6.875rem;

@@ -1,8 +1,6 @@
 import "./Button.scss";
 
-function Button(props) {
-    let buttonText = props.buttonText;
-    let buttonIcon = props.buttonIcon;
+export default function Button({ buttonText, buttonIcon }) {
     return (
         <>
             {/* button-type button to prevent form submission */}
@@ -17,5 +15,3 @@ function Button(props) {
         </>
     );
 }
-
-export default Button;

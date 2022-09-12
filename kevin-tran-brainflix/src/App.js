@@ -3,7 +3,7 @@ import Header from "./components/Header";
 import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Home from "./pages/Home/Home";
-import VideoUpload from "./pages/VideoUpload/VideoUpload";
+import UploadVideo from "./pages/UploadVideo/UploadVideo";
 
 class App extends React.Component {
     render() {
@@ -13,7 +13,7 @@ class App extends React.Component {
                     <Header />
                     <Switch>
                         <Route path="/" exact component={Home} />
-                        <Route path="/vidupload" component={VideoUpload} />
+                        <Route path="/vidupload" component={UploadVideo} />
                         <Route path="/:videoId" component={Home} />
                     </Switch>
                 </BrowserRouter>

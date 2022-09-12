@@ -4,30 +4,21 @@ import BlankIcon from "../BlankIcon/BlankIcon";
 import DateStamp from "../DateStamp/DateStamp";
 import React from "react";
 
-class CommentsHistory extends React.Component {
-    render() {
-        return (
-            <>
-                <Divider lineClass={"divider"} />
-                <div className="comhistory">
-                    {/* Temporary Blank Icon */}
-                    <BlankIcon />
-                    <div className="comhistory__right-container">
-                        <div className="comhistory__right-subheader">
-                            <span className="comhistory__name">
-                                {" "}
-                                {this.props.name}
-                            </span>
-                            <DateStamp mainData={this.props} />
-                        </div>
-                        <p className="comhistory__comment">
-                            {this.props.comment}
-                        </p>
+export default function CommentsHistory({ name, comment, timestamp }) {
+    return (
+        <>
+            <Divider lineClass={"divider"} />
+            <div className="comhistory">
+                {/* Temporary Blank Icon as per project req. */}
+                <BlankIcon />
+                <div className="comhistory__right-container">
+                    <div className="comhistory__right-subheader">
+                        <span className="comhistory__name"> {name}</span>
+                        <DateStamp mainData={timestamp} />
                     </div>
+                    <p className="comhistory__comment">{comment}</p>
                 </div>
-            </>
-        );
-    }
+            </div>
+        </>
+    );
 }
-
-export default CommentsHistory;

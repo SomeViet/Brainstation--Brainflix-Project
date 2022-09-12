@@ -1,5 +1,5 @@
 import "./Header.scss";
-import logo from "../../assets/images/BrainFlix-logo.svg";
+import logoImg from "../../assets/images/BrainFlix-logo.svg";
 import userAvatar from "../../assets/images/Mohan-muruge.jpg";
 import upload from "../../assets/images/upload.svg";
 import Button from "../Button/Button";
@@ -8,12 +8,12 @@ import SearchBar from "../SearchBar/SearchBar";
 import Logo from "../Logo/Logo";
 import { Link } from "react-router-dom";
 
-function Header() {
+export default function Header() {
     return (
         <header className="header">
             <div className="header__logo">
                 <Link to="/" className="header__home-link">
-                    <Logo logoImg={logo} />
+                    <Logo logoImg={logoImg} />
                 </Link>
             </div>
 
@@ -34,5 +34,3 @@ function Header() {
         </header>
     );
 }
-
-export default Header;
