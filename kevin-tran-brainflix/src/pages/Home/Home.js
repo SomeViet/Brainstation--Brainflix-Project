@@ -92,65 +92,64 @@ class Home extends React.Component {
         const prevId = prevProps.match.params.videoId;
         const { apiKey, port } = this.props;
 
-        if (videoIdParam) {
-            // If the video Ids are different, update the state with the new video
-            if (prevId !== videoIdParam) {
-                axios
-                    .get(
-                        `http://localhost:${port}/videos/${this.props.match.params.videoId}?api_key=${apiKey}`
-                    )
-                    .then((response) => {
-                        const portAdder = response.data;
-                        portAdder.image = portAdder.image.replace(
-                            "%%%PORT%%%",
-                            port
-                        );
+        // If the video Ids are different, update the state with the new video
+        if (prevId !== videoIdParam && videoIdParam) {
+            const videoId = this.props.match.params.videoId;
+            axios
+                .get(
+                    `http://localhost:${port}/videos/${videoId}?api_key=${apiKey}`
+                )
+                .then((response) => {
+                    const portAdder = response.data;
+                    portAdder.image = portAdder.image.replace(
+                        "%%%PORT%%%",
+                        port
+                    );
 
-                        // Remove the main video from sidebar data and update State with new video and sidebar
-                        this.nextVideoData = this.videoData.filter((var1) => {
-                            return var1.id !== videoIdParam;
-                        });
-                        this.setState({
-                            currentHero: portAdder,
-                            dataSummary: this.nextVideoData,
-                        });
-                    })
-                    .catch((e) => {
-                        console.error(e);
+                    // Remove the main video from sidebar data and update State with new video and sidebar
+                    this.nextVideoData = this.videoData.filter((var1) => {
+                        return var1.id !== videoIdParam;
                     });
-                return true;
-            }
-
-            // If the code above does not execute, if the ID is undefined(from logo), and if the 2 Ids are different, load the first video from the API
-            if (videoIdParam === undefined && prevId !== videoIdParam) {
-                const videoId = this.videoData[0].id;
-                axios
-                    .get(
-                        `http://localhost:${port}/videos/${videoId}?api_key=${this.apiKey}`
-                    )
-                    .then((response) => {
-                        const portAdder = response.data;
-                        portAdder.image = portAdder.image.replace(
-                            "%%%PORT%%%",
-                            port
-                        );
-
-                        this.nextVideoData = this.videoData.filter((var1) => {
-                            return var1.id !== videoId;
-                        });
-                        this.setState({
-                            currentHero: portAdder,
-                            dataSummary: this.nextVideoData,
-                        });
-                    })
-                    .catch((e) => {
-                        console.error(e);
+                    this.setState({
+                        currentHero: portAdder,
+                        dataSummary: this.nextVideoData,
                     });
-                return true;
-            }
-            // Debugger for infinite loops - comment out during submission
-            return console.log("Done - Check for infinite loop");
+                })
+                .catch((e) => {
+                    console.error(e);
+                });
+            return true;
         }
+
+        // If the code above does not execute, if the ID is undefined(from logo), and if the 2 Ids are different, load the first video from the API
+        if (videoIdParam === undefined && prevId !== videoIdParam) {
+            const videoId = this.videoData[0].id;
+            axios
+                .get(
+                    `http://localhost:${port}/videos/${videoId}?api_key=${apiKey}`
+                )
+                .then((response) => {
+                    const portAdder = response.data;
+                    portAdder.image = portAdder.image.replace(
+                        "%%%PORT%%%",
+                        port
+                    );
+
+                    this.nextVideoData = this.videoData.filter((var1) => {
+                        return var1.id !== videoId;
+                    });
+                    this.setState({
+                        currentHero: portAdder,
+                        dataSummary: this.nextVideoData,
+                    });
+                })
+                .catch((e) => {
+                    console.error(e);
+                });
+            return true;
+        }
+        // // Debugger for infinite loops - comment out during submission
+        // return console.log("Done - Check for infinite loop");
     }
 
     render() {
