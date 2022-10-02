@@ -6,6 +6,7 @@ export default function UploadFormInputs() {
             <div>
                 <h3 className="uploadforminput__label">TITLE YOUR VIDEO</h3>
                 <input
+                    name="videoTitle"
                     className="uploadforminput__title"
                     type="text"
                     placeholder="Add a title to your video"
@@ -16,9 +17,9 @@ export default function UploadFormInputs() {
                     ADD A VIDEO DESCRIPTION
                 </h3>
                 <textarea
+                    name="videoDescription"
                     className="uploadforminput__description"
                     placeholder="Add a description to your video"
-                    name=""
                     minLength="4"
                 ></textarea>
             </div>
