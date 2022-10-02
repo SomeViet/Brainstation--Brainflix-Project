@@ -3,7 +3,7 @@ import Divider from "../../components/Divider/Divider";
 import "./UploadVideo.scss";
 import UploadForm from "../../components/UploadForm/UploadForm";
 
-export default function UploadVideo() {
+export default function UploadVideo({ apiKey, port }) {
     return (
         <>
             <Divider />
@@ -14,7 +14,7 @@ export default function UploadVideo() {
                         <Divider />
                     </span>
                 </div>
-                <UploadForm />
+                <UploadForm apiKey={apiKey} port={port} />
             </main>
         </>
     );

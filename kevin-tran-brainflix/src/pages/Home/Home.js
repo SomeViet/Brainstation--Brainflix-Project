@@ -10,7 +10,6 @@ import { withRouter } from "react-router-dom";
 class Home extends React.Component {
     constructor() {
         super();
-
         this.videoData = "";
         this.mainHeroId = "";
         this.mainHeroDataDetails = "";
@@ -43,17 +42,18 @@ class Home extends React.Component {
 
                 this.videoData = portAdder;
                 const videoIdParams = this.props.match.params.videoId;
+
                 // If Video ID is undefined (usually on initial load), Load the first video as default
                 if (!videoIdParams) {
-                    this.nextVideoData = response.data.filter((var1) => {
-                        return var1.id !== response.data[0].id;
+                    this.nextVideoData = response.data.filter((data) => {
+                        return data.id !== response.data[0].id;
                     });
                     this.getVideoDetail(this.videoData[0].id, apiKey, port);
 
                     // Otherwise, on mount, load the video ID specified (usually on a refresh)
                 } else {
-                    this.nextVideoData = response.data.filter((var1) => {
-                        return var1.id !== videoIdParams;
+                    this.nextVideoData = response.data.filter((data) => {
+                        return data.id !== videoIdParams;
                     });
                     this.getVideoDetail(videoIdParams, apiKey, port);
                 }
@@ -94,10 +94,9 @@ class Home extends React.Component {
 
         // If the video Ids are different, update the state with the new video
         if (prevId !== videoIdParam && videoIdParam) {
-            const videoId = this.props.match.params.videoId;
             axios
                 .get(
-                    `http://localhost:${port}/videos/${videoId}?api_key=${apiKey}`
+                    `http://localhost:${port}/videos/${videoIdParam}?api_key=${apiKey}`
                 )
                 .then((response) => {
                     const portAdder = response.data;
@@ -106,12 +105,15 @@ class Home extends React.Component {
                         port
                     );
 
+                    this.mainHeroDataDetails = portAdder;
+
                     // Remove the main video from sidebar data and update State with new video and sidebar
                     this.nextVideoData = this.videoData.filter((var1) => {
                         return var1.id !== videoIdParam;
                     });
+
                     this.setState({
-                        currentHero: portAdder,
+                        currentHero: this.mainHeroDataDetails,
                         dataSummary: this.nextVideoData,
                     });
                 })
@@ -135,11 +137,13 @@ class Home extends React.Component {
                         port
                     );
 
+                    this.mainHeroDataDetails = portAdder;
                     this.nextVideoData = this.videoData.filter((var1) => {
                         return var1.id !== videoId;
                     });
+
                     this.setState({
-                        currentHero: portAdder,
+                        currentHero: this.mainHeroDataDetails,
                         dataSummary: this.nextVideoData,
                     });
                 })

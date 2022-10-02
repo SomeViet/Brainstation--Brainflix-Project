@@ -16,7 +16,9 @@ class App extends React.Component {
                         <Route path="/" exact>
                             <Home apiKey={apiKey} port={port} />
                         </Route>
-                        <Route path="/vidupload" component={UploadVideo} />
+                        <Route path="/vidupload">
+                            <UploadVideo apiKey={apiKey} port={port} />
+                        </Route>
                         <Route path="/:videoId">
                             <Home apiKey={apiKey} port={port} />
                         </Route>

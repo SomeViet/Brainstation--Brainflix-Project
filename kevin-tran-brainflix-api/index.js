@@ -20,8 +20,10 @@ app.use((req, res, next) => {
 const videoRoute = require("./routes/videos");
 app.use("/videos", videoRoute);
 
-app.get("/", (req, res) => {
-    res.status(403).send("You are GETing the index page. Go Away");
+app.get("/", (_, res) => {
+    res.status(403).send(
+        "You are GETing the index page. There is nothing here"
+    );
 });
 
 app.listen(PORT, () => {

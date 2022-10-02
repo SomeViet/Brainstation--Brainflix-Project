@@ -4,7 +4,7 @@ const router = express.Router();
 const videoData = require("../data/videos.json");
 const fs = require("fs");
 
-router.get("/", (req, res) => {
+router.get("/", (_, res) => {
     res.send(videoData);
 });
 

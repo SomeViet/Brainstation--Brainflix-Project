@@ -8,8 +8,9 @@ import publishIcon from "../../assets/images/publish.svg";
 import UploadFormInputs from "../UploadFormInputs/UploadFormInputs";
 import axios from "axios";
 import { v4 as uuidv4 } from "uuid";
+import { withRouter } from "react-router-dom";
 
-export default function UploadForm() {
+function UploadForm({ apiKey, port }) {
     const uploadCancelled = () => {
         alert("Video Upload Cancelled");
     };
@@ -21,8 +22,7 @@ export default function UploadForm() {
         const videoTitle = event.target.videoTitle.value;
         const videoDescription = event.target.videoDescription.value;
         // Set-up placeholder data, as per instructions
-        const videoImage =
-            "http://localhost:6969/images/Upload-video-preview.jpg";
+        const videoImage = `http://localhost:${port}/images/Upload-video-preview.jpg`;
         const videoId = uuidv4();
         const videoChannel = "A Ghost";
         const videoTimestamp = Date.now();
@@ -30,22 +30,19 @@ export default function UploadForm() {
         const video = "https://project-2-api.herokuapp.com/stream";
 
         axios
-            .post(
-                "http://localhost:6969/videos?api_key=81032e04-2c58-40b5-99e9-45fc20349a23",
-                {
-                    title: videoTitle,
-                    channel: videoChannel,
-                    image: videoImage,
-                    description: videoDescription,
-                    views: "0",
-                    likes: "0",
-                    duration: videoDuration,
-                    video: video,
-                    timestamp: videoTimestamp,
-                    comments: [],
-                    id: videoId,
-                }
-            )
+            .post(`http://localhost:${port}/videos?api_key=${apiKey}`, {
+                title: videoTitle,
+                channel: videoChannel,
+                image: videoImage,
+                description: videoDescription,
+                views: "0",
+                likes: "0",
+                duration: videoDuration,
+                video: video,
+                timestamp: videoTimestamp,
+                comments: [],
+                id: videoId,
+            })
             .then((response) => {
                 if (response) {
                     alert("Upload Successful");
@@ -74,9 +71,7 @@ export default function UploadForm() {
                 <Divider />
             </span>
             <div className="uploadform__upload-container">
-                {/* <Link to="/" onClick={uploadVideo}> */}
                 <Button buttonIcon={publishIcon} buttonText={"PUBLISH"} />
-                {/* </Link> */}
                 <Link
                     to="/"
                     className="uploadform__cancel"
@@ -88,3 +83,5 @@ export default function UploadForm() {
         </form>
     );
 }
+
+export default withRouter(UploadForm);
