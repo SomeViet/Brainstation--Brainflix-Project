@@ -14,7 +14,6 @@ router.get("/:videoId", (req, res) => {
         return videoData.id == requestedVideoId;
     });
 
-    console.log(requestedVideoData);
     res.send(requestedVideoData);
 });
 

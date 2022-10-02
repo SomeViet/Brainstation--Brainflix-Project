@@ -4,7 +4,9 @@ const app = express();
 const cors = require("cors");
 app.use(cors());
 
-const { PORT, BACKEND_URL, apiKey } = process.env;
+const { PORT, apiKey } = process.env;
+
+app.use(express.static("public"));
 
 app.use((req, res, next) => {
     if (req.query.api_key !== apiKey) {
@@ -13,12 +15,12 @@ app.use((req, res, next) => {
         next();
     }
 });
-const videoRoute = require("./routes/videos");
 
+const videoRoute = require("./routes/videos");
 app.use("/videos", videoRoute);
 
 app.get("/", (req, res) => {
-    res.send("You are GETing the index page");
+    res.send("You are GETing the index page. Go Away");
 });
 
 app.listen(PORT, () => {

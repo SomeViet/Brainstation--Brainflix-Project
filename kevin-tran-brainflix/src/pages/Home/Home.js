@@ -26,43 +26,36 @@ class Home extends React.Component {
     componentDidMount() {
         const { apiKey, port } = this.props;
         this.getVideos(apiKey, port);
-        this.test(apiKey);
     }
-
-    test = (apiKey) => {
-        axios
-            .get(
-                `http://localhost:6969/videos/84e96018-4022-434e-80bf-000ce4cd12b8` +
-                    `?api_key=${apiKey}`
-            )
-            .then((response) => {
-                console.log(response.data);
-            })
-            .catch((e) => {
-                console.error(e);
-            });
-    };
 
     // GET video data for mounting
     getVideos = (apiKey, port) =>
         axios
-            .get(`http://localhost:${port}/videos` + `?api_key=${apiKey}`)
+            .get(`http://localhost:${port}/videos?api_key=${apiKey}`)
             .then((response) => {
-                this.videoData = response.data;
+                const portAdder = response.data;
+                for (let i = 0; i < portAdder.length; i++) {
+                    portAdder[i].image = portAdder[i].image.replace(
+                        "%%%PORT%%%",
+                        port
+                    );
+                }
+
+                this.videoData = portAdder;
                 const videoIdParams = this.props.match.params.videoId;
                 // If Video ID is undefined (usually on initial load), Load the first video as default
                 if (!videoIdParams) {
                     this.nextVideoData = response.data.filter((var1) => {
                         return var1.id !== response.data[0].id;
                     });
-                    this.getVideoDetail(this.videoData[0].id, apiKey);
+                    this.getVideoDetail(this.videoData[0].id, apiKey, port);
 
                     // Otherwise, on mount, load the video ID specified (usually on a refresh)
                 } else {
                     this.nextVideoData = response.data.filter((var1) => {
                         return var1.id !== videoIdParams;
                     });
-                    this.getVideoDetail(videoIdParams, apiKey);
+                    this.getVideoDetail(videoIdParams, apiKey, port);
                 }
             })
             .catch((e) => {
@@ -71,15 +64,17 @@ class Home extends React.Component {
 
     // Get video detail data with passed information from first axios
 
-    getVideoDetail = (videoIdParam, apiKey) => {
+    getVideoDetail = (videoIdParam, apiKey, port) => {
         axios
             .get(
-                `https://project-2-api.herokuapp.com/videos/${videoIdParam}?api_key=${apiKey}`
+                `http://localhost:${port}/videos/${videoIdParam}?api_key=${apiKey}`
             )
             // With the main video data and the sidebar video data, set the state
             .then((response) => {
-                console.log(response.data);
-                this.mainHeroDataDetails = response.data;
+                const portAdder = response.data;
+                portAdder.image = portAdder.image.replace("%%%PORT%%%", port);
+
+                this.mainHeroDataDetails = portAdder;
                 this.setState({
                     currentHero: this.mainHeroDataDetails,
                     dataSummary: this.nextVideoData,
@@ -95,21 +90,28 @@ class Home extends React.Component {
         //Store the current video ID and previous video ID into variables
         const videoIdParam = this.props.match.params.videoId;
         const prevId = prevProps.match.params.videoId;
+        const { apiKey, port } = this.props;
 
         if (videoIdParam) {
             // If the video Ids are different, update the state with the new video
             if (prevId !== videoIdParam) {
                 axios
                     .get(
-                        `https://project-2-api.herokuapp.com/videos/${this.props.match.params.videoId}?api_key=${this.apiKey}`
+                        `http://localhost:${port}/videos/${this.props.match.params.videoId}?api_key=${apiKey}`
                     )
                     .then((response) => {
+                        const portAdder = response.data;
+                        portAdder.image = portAdder.image.replace(
+                            "%%%PORT%%%",
+                            port
+                        );
+
                         // Remove the main video from sidebar data and update State with new video and sidebar
                         this.nextVideoData = this.videoData.filter((var1) => {
                             return var1.id !== videoIdParam;
                         });
                         this.setState({
-                            currentHero: response.data,
+                            currentHero: portAdder,
                             dataSummary: this.nextVideoData,
                         });
                     })
@@ -124,14 +126,20 @@ class Home extends React.Component {
                 const videoId = this.videoData[0].id;
                 axios
                     .get(
-                        `https://project-2-api.herokuapp.com/videos/${videoId}?api_key=${this.apiKey}`
+                        `http://localhost:${port}/videos/${videoId}?api_key=${this.apiKey}`
                     )
                     .then((response) => {
+                        const portAdder = response.data;
+                        portAdder.image = portAdder.image.replace(
+                            "%%%PORT%%%",
+                            port
+                        );
+
                         this.nextVideoData = this.videoData.filter((var1) => {
                             return var1.id !== videoId;
                         });
                         this.setState({
-                            currentHero: response.data,
+                            currentHero: portAdder,
                             dataSummary: this.nextVideoData,
                         });
                     })
