@@ -1,12 +1,21 @@
+require("dotenv").config();
 const express = require("express");
 const router = express.Router();
+const videoData = require("../data/videos.json");
 
 router.get("/", (req, res) => {
-    res.send("You are GETing videos json data");
+    res.send(videoData);
 });
 
-// router.get(`/${videoId}`, (req, res) => {
-//     res.send("Test success");
-// });
+router.get("/:videoId", (req, res) => {
+    const requestedVideoId = req.params.videoId;
+
+    const requestedVideoData = videoData.find((videoData) => {
+        return videoData.id == requestedVideoId;
+    });
+
+    console.log(requestedVideoData);
+    res.send(requestedVideoData);
+});
 
 module.exports = router;

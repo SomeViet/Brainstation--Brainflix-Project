@@ -24,18 +24,29 @@ class Home extends React.Component {
 
     // Lifecycle - Mount Initialization
     componentDidMount() {
-        const apiKey = this.props.apiKey;
-        this.getVideos(apiKey);
+        const { apiKey, port } = this.props;
+        this.getVideos(apiKey, port);
+        this.test(apiKey);
     }
 
-    // GET video data for mounting
-    getVideos = (apiKey) =>
+    test = (apiKey) => {
         axios
             .get(
-                "https://project-2-api.herokuapp.com/videos" +
-                    "?api_key=" +
-                    apiKey
+                `http://localhost:6969/videos/84e96018-4022-434e-80bf-000ce4cd12b8` +
+                    `?api_key=${apiKey}`
             )
+            .then((response) => {
+                console.log(response.data);
+            })
+            .catch((e) => {
+                console.error(e);
+            });
+    };
+
+    // GET video data for mounting
+    getVideos = (apiKey, port) =>
+        axios
+            .get(`http://localhost:${port}/videos` + `?api_key=${apiKey}`)
             .then((response) => {
                 this.videoData = response.data;
                 const videoIdParams = this.props.match.params.videoId;
@@ -67,6 +78,7 @@ class Home extends React.Component {
             )
             // With the main video data and the sidebar video data, set the state
             .then((response) => {
+                console.log(response.data);
                 this.mainHeroDataDetails = response.data;
                 this.setState({
                     currentHero: this.mainHeroDataDetails,
