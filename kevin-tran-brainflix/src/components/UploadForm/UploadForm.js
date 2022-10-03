@@ -1,5 +1,4 @@
 import VideoPreview from "../VideoPreview/VideoPreview";
-import Divider from "../Divider/Divider";
 import Button from "../Button/Button";
 import "./UploadForm.scss";
 import { Link } from "react-router-dom";
@@ -67,9 +66,6 @@ function UploadForm({ apiKey, port }) {
                 <VideoPreview videoPreview={videoPreview} />
                 <UploadFormInputs />
             </div>
-            <span className="uploadform__line-container">
-                <Divider />
-            </span>
             <div className="uploadform__upload-container">
                 <Button buttonIcon={publishIcon} buttonText={"PUBLISH"} />
                 <Link

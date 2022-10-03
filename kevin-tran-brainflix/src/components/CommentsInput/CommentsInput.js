@@ -16,11 +16,7 @@ export default function CommentsInput() {
                 minLength="1"
                 className="commentsinput__text-area"
             ></textarea>
-            <Button
-                // "Comment" attributes
-                buttonText={"COMMENT"}
-                buttonIcon={CommentIcon}
-            />
+            <Button buttonText={"COMMENT"} buttonIcon={CommentIcon} />
         </form>
     );
 }

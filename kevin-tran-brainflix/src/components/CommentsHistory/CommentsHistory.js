@@ -1,5 +1,4 @@
 import "./CommentsHistory.scss";
-import Divider from "../Divider/Divider";
 import BlankIcon from "../BlankIcon/BlankIcon";
 import DateStamp from "../DateStamp/DateStamp";
 import React from "react";
@@ -7,7 +6,6 @@ import React from "react";
 export default function CommentsHistory({ name, comment, timestamp }) {
     return (
         <>
-            <Divider lineClass={"divider"} />
             <div className="comhistory">
                 {/* Temporary Blank Icon as per project req. */}
                 <BlankIcon />

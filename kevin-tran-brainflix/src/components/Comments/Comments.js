@@ -3,7 +3,6 @@ import UserIcon from "../UserIcon/UserIcon";
 import CommentsInput from "../CommentsInput/CommentsInput";
 import userAvatar from "../../assets/images/Mohan-muruge.jpg";
 import CommentsHistory from "../CommentsHistory/CommentsHistory";
-import Divider from "../Divider/Divider";
 import React from "react";
 
 export default function Comments({ mainData }) {
@@ -37,7 +36,6 @@ export default function Comments({ mainData }) {
                       );
                   })
                 : null}
-            <Divider lineClass={"divider"} />
         </div>
     );
 }

@@ -5,42 +5,37 @@
 
 .uploadform {
     @include tablet {
-        gap: 24px;
+        gap: 1.5rem;
     }
-    gap: 16px;
+    gap: 1rem;
     display: flex;
     flex-direction: column;
 
     &__container {
         @include tablet {
-            gap: 24px;
+            gap: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 0.125rem $mercury solid;
         }
         @include desktop {
             flex-direction: row;
         }
         display: flex;
         flex-direction: column;
-        gap: 16px;
-    }
-
-    &__line-container {
-        @include tablet {
-            display: inline;
-        }
-        display: none;
+        gap: 1rem;
     }
 
     &__upload-container {
         @include tablet {
             flex-direction: row-reverse;
-            gap: 24px;
-            margin-bottom: 24px;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
         }
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 16px;
-        margin-bottom: 16px;
+        gap: 1rem;
+        margin-bottom: 1rem;
     }
 
     &__cancel {
@@ -48,9 +43,9 @@
             width: auto;
         }
         text-decoration: none;
-        height: 40px;
-        border: 0px;
-        min-width: 150px;
+        height: 2.5rem;
+        border: 0rem;
+        min-width: 9.375rem;
         width: 100%;
         position: relative;
     }
@@ -60,7 +55,7 @@
         font-family: "Avenir";
         color: $brainflix-blue;
         text-decoration: none;
-        margin: 0px;
+        margin: 0rem;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);

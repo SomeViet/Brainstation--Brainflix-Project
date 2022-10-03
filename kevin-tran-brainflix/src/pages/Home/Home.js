@@ -1,7 +1,6 @@
 import HeroVideo from "../../components/HeroVideo/HeroVideo";
 import React from "react";
 import Main from "../../components/Main/Main";
-import VerticalLine from "../../components/VerticalLine/VerticalLine";
 import NextVideo from "../../components/NextVideo/NextVideo";
 import "./Home.scss";
 import axios from "axios";
@@ -162,10 +161,9 @@ class Home extends React.Component {
                 <HeroVideo heroImage={this.state.currentHero.image} />
                 <div className="app__container">
                     <Main mainData={this.state.currentHero} />
-                    <div className="app__vertical-line">
-                        <VerticalLine />
+                    <div className="app__next-video">
+                        <NextVideo nextVideoData={this.state.dataSummary} />
                     </div>
-                    <NextVideo nextVideoData={this.state.dataSummary} />
                 </div>
             </>
         );

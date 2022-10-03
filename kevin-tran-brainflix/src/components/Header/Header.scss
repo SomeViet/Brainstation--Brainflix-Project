@@ -4,14 +4,18 @@
 @use "../../styles/partials/mediaqueries" as *;
 
 .header {
-    @include page-sidemargins;
-    @include tablet {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        margin: 1.5rem auto;
+    border-bottom: 0.125rem $mercury solid;
+
+    &__container {
+        @include page-sidemargins;
+        @include tablet {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 1.5rem auto;
+        }
+        margin: 1rem auto;
     }
-    margin: 1rem auto;
 
     &__logo {
         @include tablet {

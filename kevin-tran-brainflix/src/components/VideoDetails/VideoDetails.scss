@@ -16,24 +16,27 @@
     &__header {
         @include tablet {
             margin: 2.25rem 0 0.5rem 0;
+            border-bottom: 0rem;
+            padding-bottom: 0rem;
         }
         @include pageheader;
-        margin: 24 0 1rem 0;
+        margin: 1.5rem 0 1rem 0;
         color: $brainflix-black;
-    }
-
-    &__divider-tablet {
-        @include tablet {
-            display: none;
-        }
+        padding-bottom: 1rem;
+        border-bottom: 0.125rem $mercury solid;
     }
 
     &__subheader {
+        @include desktop {
+            padding-right: 1.5rem;
+        }
         @include tablet {
             margin: 0.5rem auto;
         }
         display: flex;
-        margin: 1rem auto;
+        margin: 1rem auto 0 auto;
+        padding-bottom: 1rem;
+        border-bottom: 0.125rem $mercury solid;
 
         &-left {
             @include tablet {
