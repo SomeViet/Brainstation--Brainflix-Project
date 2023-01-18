@@ -9,7 +9,7 @@ import axios from "axios";
 import { v4 as uuidv4 } from "uuid";
 import { withRouter } from "react-router-dom";
 
-function UploadForm({ apiKey, port }) {
+function UploadForm({ APIKEY, SITE }) {
     const uploadCancelled = () => {
         alert("Video Upload Cancelled");
     };
@@ -21,7 +21,7 @@ function UploadForm({ apiKey, port }) {
         const videoTitle = event.target.videoTitle.value;
         const videoDescription = event.target.videoDescription.value;
         // Set-up placeholder data, as per instructions
-        const videoImage = `http://localhost:${port}/images/Upload-video-preview.jpg`;
+        const videoImage = `${SITE}/images/Upload-video-preview.jpg`;
         const videoId = uuidv4();
         const videoChannel = "A Ghost";
         const videoTimestamp = Date.now();
@@ -29,7 +29,7 @@ function UploadForm({ apiKey, port }) {
         const video = "https://project-2-api.herokuapp.com/stream";
 
         axios
-            .post(`http://localhost:${port}/videos?api_key=${apiKey}`, {
+            .post(`${SITE}/videos?api_key=${APIKEY}`, {
                 title: videoTitle,
                 channel: videoChannel,
                 image: videoImage,

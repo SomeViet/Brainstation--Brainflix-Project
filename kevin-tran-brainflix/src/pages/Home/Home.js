@@ -104,7 +104,6 @@ class Home extends React.Component {
                         "%%%SITE%%%",
                         SITE
                     );
-                    console.log(portAdder.image);
 
                     this.mainHeroDataDetails = portAdder;
 

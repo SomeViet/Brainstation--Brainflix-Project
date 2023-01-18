@@ -3,7 +3,7 @@ import React from "react";
 import "./UploadVideo.scss";
 import UploadForm from "../../components/UploadForm/UploadForm";
 
-export default function UploadVideo({ apiKey, port }) {
+export default function UploadVideo({ APIKEY, SITE }) {
     return (
         <>
             <main className="uploadvideo">
@@ -11,7 +11,7 @@ export default function UploadVideo({ apiKey, port }) {
                     <h1 className="uploadvideo__header-text">Upload Video</h1>
                     <span className="uploadvideo__line-container"></span>
                 </div>
-                <UploadForm apiKey={apiKey} port={port} />
+                <UploadForm APIKEY={APIKEY} SITE={SITE} />
             </main>
         </>
     );
