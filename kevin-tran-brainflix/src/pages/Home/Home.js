@@ -22,20 +22,20 @@ class Home extends React.Component {
 
     // Lifecycle - Mount Initialization
     componentDidMount() {
-        const { apiKey, port } = this.props;
-        this.getVideos(apiKey, port);
+        const { APIKEY, SITE } = this.props;
+        this.getVideos(APIKEY, SITE);
     }
 
     // GET video data for mounting
-    getVideos = (apiKey, port) =>
+    getVideos = (APIKEY, SITE) =>
         axios
-            .get(`http://localhost:${port}/videos?api_key=${apiKey}`)
+            .get(`${SITE}/videos?api_key=${APIKEY}`)
             .then((response) => {
                 const portAdder = response.data;
                 for (let i = 0; i < portAdder.length; i++) {
                     portAdder[i].image = portAdder[i].image.replace(
-                        "%%%PORT%%%",
-                        port
+                        "%%%SITE%%%",
+                        SITE
                     );
                 }
 
@@ -47,14 +47,19 @@ class Home extends React.Component {
                     this.nextVideoData = response.data.filter((data) => {
                         return data.id !== response.data[0].id;
                     });
-                    this.getVideoDetail(this.videoData[0].id, apiKey, port);
+                    this.getVideoDetail(
+                        this.videoData[0].id,
+                        APIKEY,
+
+                        SITE
+                    );
 
                     // Otherwise, on mount, load the video ID specified (usually on a refresh)
                 } else {
                     this.nextVideoData = response.data.filter((data) => {
                         return data.id !== videoIdParams;
                     });
-                    this.getVideoDetail(videoIdParams, apiKey, port);
+                    this.getVideoDetail(videoIdParams, APIKEY, SITE);
                 }
             })
             .catch((e) => {
@@ -63,15 +68,13 @@ class Home extends React.Component {
 
     // Get video detail data with passed information from first axios
 
-    getVideoDetail = (videoIdParam, apiKey, port) => {
+    getVideoDetail = (videoIdParam, APIKEY, SITE) => {
         axios
-            .get(
-                `http://localhost:${port}/videos/${videoIdParam}?api_key=${apiKey}`
-            )
+            .get(`${SITE}/videos/${videoIdParam}?api_key=${APIKEY}`)
             // With the main video data and the sidebar video data, set the state
             .then((response) => {
                 const portAdder = response.data;
-                portAdder.image = portAdder.image.replace("%%%PORT%%%", port);
+                portAdder.image = portAdder.image.replace("%%%SITE%%%", SITE);
 
                 this.mainHeroDataDetails = portAdder;
                 this.setState({
@@ -89,20 +92,19 @@ class Home extends React.Component {
         //Store the current video ID and previous video ID into variables
         const videoIdParam = this.props.match.params.videoId;
         const prevId = prevProps.match.params.videoId;
-        const { apiKey, port } = this.props;
+        const { APIKEY, SITE } = this.props;
 
         // If the video Ids are different, update the state with the new video
         if (prevId !== videoIdParam && videoIdParam) {
             axios
-                .get(
-                    `http://localhost:${port}/videos/${videoIdParam}?api_key=${apiKey}`
-                )
+                .get(`${SITE}/videos/${videoIdParam}?api_key=${APIKEY}`)
                 .then((response) => {
                     const portAdder = response.data;
                     portAdder.image = portAdder.image.replace(
-                        "%%%PORT%%%",
-                        port
+                        "%%%SITE%%%",
+                        SITE
                     );
+                    console.log(portAdder.image);
 
                     this.mainHeroDataDetails = portAdder;
 
@@ -126,14 +128,12 @@ class Home extends React.Component {
         if (videoIdParam === undefined && prevId !== videoIdParam) {
             const videoId = this.videoData[0].id;
             axios
-                .get(
-                    `http://localhost:${port}/videos/${videoId}?api_key=${apiKey}`
-                )
+                .get(`${SITE}/videos/${videoId}?api_key=${APIKEY}`)
                 .then((response) => {
                     const portAdder = response.data;
                     portAdder.image = portAdder.image.replace(
-                        "%%%PORT%%%",
-                        port
+                        "%%%SITE%%%",
+                        SITE
                     );
 
                     this.mainHeroDataDetails = portAdder;

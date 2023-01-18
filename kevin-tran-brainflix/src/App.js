@@ -7,20 +7,24 @@ import UploadVideo from "./pages/UploadVideo/UploadVideo";
 
 class App extends React.Component {
     render() {
-        const { apiKey, port } = this.props;
+        const { APIKEY, port, SITE } = this.props;
         return (
             <>
                 <BrowserRouter>
                     <Header />
                     <Switch>
                         <Route path="/" exact>
-                            <Home apiKey={apiKey} port={port} />
+                            <Home APIKEY={APIKEY} port={port} SITE={SITE} />
                         </Route>
                         <Route path="/vidupload">
-                            <UploadVideo apiKey={apiKey} port={port} />
+                            <UploadVideo
+                                apiKey={APIKEY}
+                                port={port}
+                                SITE={SITE}
+                            />
                         </Route>
                         <Route path="/:videoId">
-                            <Home apiKey={apiKey} port={port} />
+                            <Home APIKEY={APIKEY} port={port} SITE={SITE} />
                         </Route>
                     </Switch>
                 </BrowserRouter>
